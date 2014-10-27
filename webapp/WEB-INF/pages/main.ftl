@@ -2,10 +2,15 @@
 <html>
 <head>
 	<title>issue list</title>
-	<link rel="stylesheet" type="text/css" href="/stylesheets/index.css">
+	<link rel="stylesheet/less" type="text/css" href="/stylesheets/index.less" />
 </head>
 
 <body>
+<script type="text/template" id="clock-template">
+<!-- 어떻게 만들지 고민중 -->
+</script>
+
+
 	<div class="section">
 		<div class="header"
 			style="background-image: url(http://imgnews.naver.net/image/001/2014/10/20/PAP20141013057101034_P2_99_20141020061506.jpg);">
