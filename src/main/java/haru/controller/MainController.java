@@ -10,9 +10,6 @@ public class MainController {
 	@RequestMapping("/")
 	public String showIndex(Model model) {
 		
-//		model.addAttribute("time", new Date());
-//		model.addAttribute("message", "hello 에프티엘");
-		
 		return "issue";
 	}
 
