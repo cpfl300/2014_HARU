@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>issue list</title>
-	<link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/index.css">
 </head>
 
 <body>

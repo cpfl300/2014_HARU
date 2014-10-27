@@ -1,0 +1,101 @@
+@CHARSET "UTF-8";
+
+html{
+	position: relative;
+	height: 100%;
+	margin: 0px;
+
+	background: -webkit-linear-gradient(rgb(68, 73, 92), rgb(95, 98, 107), rgb(68, 73, 92)); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(rgb(68, 73, 92), rgb(95, 98, 107), rgb(68, 73, 92)); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(rgb(68, 73, 92), rgb(95, 98, 107), rgb(68, 73, 92)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(rgb(68, 73, 92), rgb(95, 98, 107), rgb(68, 73, 92)); /* Standard syntax */
+}
+
+#container{
+	height: 100%;
+	position: relative;
+	padding: 50px 0px;
+}
+
+.section > .header{
+	/*background-color: rgb(53, 185, 231); */
+	/*배경색이 아니라 이 색깔 톤의 img로 대*/
+	background-position-y: center;
+	height: 75px;
+	margin: 10px auto 0px auto;
+	position: relative;
+	width: 90%;
+}
+
+.section > .header:before{
+	position: absolute;
+	content: "";
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color: rgba(53, 185, 231, 0.7); 
+}
+
+
+.check, .section_title {
+	float: left;
+	height: 100%;
+	position: relative;
+}
+
+.check{
+	width: 20%;
+	background-image: url(/images/empty_check.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.section_title{
+	width: 75%;
+	font-size: 18px;
+	color: rgb(22, 75, 94);
+}
+
+.section_title > span {
+	position: absolute;
+	top: 50%;
+	margin-top: -8px;
+}
+
+.article > span{
+	font-size: 14px;
+	color:white;
+
+	position: absolute;
+	top: 50%;
+	margin-top: -11px;
+	margin-left: 20px;
+	width: 90%;
+}
+
+.articles{
+	margin: 0px auto;
+	width: 90%;
+}
+
+.article{
+	position: relative;
+}
+
+.article{
+	background-color: rgba(53, 185, 231, 0.28); 
+	height: 75px;
+	border-top: 1px solid rgba(53, 185, 231, 0.28);
+}
+
+.read{
+	background-color: rgb(210, 239, 254);
+}
+
+.read_check{
+	height: 100%;
+	width: 2%;
+	float: right;
+}
