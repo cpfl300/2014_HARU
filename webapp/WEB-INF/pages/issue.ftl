@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>issue view</title>
+	<link rel="stylesheet/less" type="text/css" href="/stylesheets/issue.less" />
 </head>
 
 <body>
@@ -27,7 +28,7 @@
 		</div>
 		<div class="issue-header-title-container">
 			<div class="issue-read-complete-icon"></div>
-			<div class="issue-header-title">${subject}</div>
+			<div class="issue-header-title"><%= subject %></div>
 		</div>
 	</div>
 </div>
@@ -36,8 +37,15 @@
 
 	<!-- header -->
 	<div class="issue-header">
-		<div class="issue-header-photo"></div>
-		<div class="issue-header-title">이슈 제목</div>
+		<div class="issue-header-photo">
+			<div class="issue-header-title-blur">
+				<div class="blured-image"></div>
+			</div>
+			<div class="issue-header-title-container">
+				<div class="issue-read-complete-icon"></div>
+				<div class="issue-header-title">이슈 제목</div>
+			</div>
+		</div>
 	</div>
 	
 	<!-- comment -->

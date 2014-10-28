@@ -1,17 +1,28 @@
-body {
+html, body {
 	margin: 0px;
+	height:100%;
+}
+
+
+#container {
+	height: 100%;
+}
+
+.issue-header {
+	height: 40%;
+	
 }
 
 .issue-header-photo {
 	background-image: url(http://imgnews.naver.net/image/001/2014/10/28/PYH2014092700040007400_P2_99_20141028163405.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 700px;
+	height: 100%;
 	position: relative;
 }
 
 .issue-header-title-blur {
-	height: 150px;
+	height: 60px;
 	text-align: center;
 	position: absolute;
 	bottom: 0;
@@ -30,15 +41,15 @@ body {
 	left: 0;
 	position: absolute;
 	width: 100%;
-	-webkit-filter: blur(20px);
-	-moz-filter: blur(20px);
-	-o-filter: blur(20px);
-	-ms-filter: blur(20px);
+	-webkit-filter: blur(10px);
+	-moz-filter: blur(10px);
+	-o-filter: blur(10px);
+	-ms-filter: blur(10px);
 }
 
 .issue-header-title-container {
 	bottom: 0;
-	height: 150px; 
+	height: 60px; 
 	left: 0;
 	position: absolute;
 	text-align: center;
@@ -46,17 +57,17 @@ body {
 }
 
 .issue-read-complete-icon {
-	background-image: url(check.png);
+	background-image: url(/images/check.png);
 	background-size: cover;
-	height: 150px;
+	height: 60px;
 	position: absolute;
 	right: 0; 
-	width: 150px;
+	width: 60px;
 }
 
 .issue-header-title {
 	color: white; 
+	font-size: 30px;
 	display: inline-block;
-	font-size: 60px;
-	line-height: 150px;
+	line-height: 60px;
 }
