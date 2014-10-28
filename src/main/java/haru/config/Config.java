@@ -15,13 +15,6 @@ public class Config {
 	@Bean
     public ViewResolver viewResolver() {
 		
-		/*
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/WEB-INF/pages/");
-        viewResolver.setSuffix(".jsp");
-        */
-		
 		// viewResolver를 freemarker로 지정
         FreeMarkerViewResolver viewResolver = new FreeMarkerViewResolver();
         viewResolver.setOrder(1);
@@ -32,7 +25,6 @@ public class Config {
         
         return viewResolver;
     }
-	
 	
 	@Bean
 	public FreeMarkerConfigurer freeMarkerConfig() {
