@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>issue list</title>
-	<link rel="stylesheet/less" type="text/css" href="/stylesheets/index.less" />
+	<title>main view</title>
+	<link rel="stylesheet/less" type="text/css" href="/stylesheets/main.less" />
 </head>
 
 <body>

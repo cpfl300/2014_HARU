@@ -1,35 +1,61 @@
-html, body {
-	margin: 0px;
-	height:100%;
-}
-
-
-#container {
+.issue {
 	height: 100%;
-}
-
-.issue-header {
-	height: 40%;
+	
+	.issue-header {
+		height: 40%;
+		
+		.issue-header-photo {
+			background-image: url(http://imgnews.naver.net/image/001/2014/10/28/PYH2014092700040007400_P2_99_20141028163405.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			height: 100%;
+			position: relative;
+		}
+		
+		.issue-header-title-blur {
+			height: 60px;
+			text-align: center;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			overflow: hidden;
+		}
+		
+		.issue-header-title-container {
+			bottom: 0;
+			height: 60px; 
+			left: 0;
+			position: absolute;
+			text-align: center;
+			width: 100%;
+		}
+		
+	}
+	
+	
+	
+	.issue-read-complete-icon {
+		background-image: url(/images/check.png);
+		background-size: cover;
+		height: 60px;
+		position: absolute;
+		right: 0; 
+		width: 60px;
+	}
+	
+	.issue-header-title {
+		color: white; 
+		font-size: 30px;
+		display: inline-block;
+		line-height: 60px;
+	}
+		
 	
 }
 
-.issue-header-photo {
-	background-image: url(http://imgnews.naver.net/image/001/2014/10/28/PYH2014092700040007400_P2_99_20141028163405.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 100%;
-	position: relative;
-}
 
-.issue-header-title-blur {
-	height: 60px;
-	text-align: center;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	overflow: hidden;
-}
+
 
 .blured-image {
 	background-image: url(http://imgnews.naver.net/image/001/2014/10/28/PYH2014092700040007400_P2_99_20141028163405.jpg);
@@ -47,27 +73,3 @@ html, body {
 	-ms-filter: blur(10px);
 }
 
-.issue-header-title-container {
-	bottom: 0;
-	height: 60px; 
-	left: 0;
-	position: absolute;
-	text-align: center;
-	width: 100%;
-}
-
-.issue-read-complete-icon {
-	background-image: url(/images/check.png);
-	background-size: cover;
-	height: 60px;
-	position: absolute;
-	right: 0; 
-	width: 60px;
-}
-
-.issue-header-title {
-	color: white; 
-	font-size: 30px;
-	display: inline-block;
-	line-height: 60px;
-}
