@@ -11,10 +11,10 @@
 </script>
 
 <script type="text/template" id="subject-template">
-	<div class="subjects_card">
-		<div class="subject_content">
-			<div class="subject_rank"></div>
-			<div class="subject_text_container"></div>
+	<div class="subjects-card">
+		<div class="subject-content">
+			<div class="subject-rank"></div>
+			<div class="subject-text-container"></div>
 		</div>
 	</div>
 </script>
