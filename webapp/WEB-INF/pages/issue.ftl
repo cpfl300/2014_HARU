@@ -5,6 +5,19 @@
 </head>
 
 <body>
+<script type="text/template" id="article-card-template">
+<div class="article-card">
+	<div class="article-title-text">
+	</div>
+</div>
+</script>
+<script type="text/template" id="rotated-arficle-card-template">
+<div class="article-card">
+	<div class="article-source-text">
+	</div>
+</div>
+</script>
+
 
 	<!-- header -->
 	<div class="issue-header">
