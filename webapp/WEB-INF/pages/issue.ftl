@@ -11,9 +11,24 @@
 	</div>
 </div>
 </script>
+
 <script type="text/template" id="rotated-arficle-card-template">
 <div class="article-card">
 	<div class="article-source-text">
+	</div>
+</div>
+</script>
+
+<script type="text/template" id="issue-header-template">
+<div class="issue-header">
+	<div class="issue-header-photo">
+		<div class="issue-header-title-blur">
+			<div class="blured-image"></div>
+		</div>
+		<div class="issue-header-title-container">
+			<div class="issue-read-complete-icon"></div>
+			<div class="issue-header-title">${subject}</div>
+		</div>
 	</div>
 </div>
 </script>
