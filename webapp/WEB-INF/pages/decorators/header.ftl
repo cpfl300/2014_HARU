@@ -26,7 +26,6 @@
 	</div>
 	
 	<div id="container">
-		<div class="container-header"></div>
 		<sitemesh:write property='body' />
 	</div>
 </body>
