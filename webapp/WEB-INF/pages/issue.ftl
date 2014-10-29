@@ -36,13 +36,14 @@
 	<div class="issue">
 		<!-- header -->
 		<div class="issue-header">
-			<div class="issue-header-photo">
-				<div class="issue-header-title-blur">
-					<div class="blured-image"></div>
+			<div class="issue-header-photo"></div>
+			<div class="issue-header-title">
+				<div class="background">
+					<div class="img blured-img"></div>
 				</div>
-				<div class="issue-header-title-container">
-					<div class="issue-read-complete-icon"></div>
-					<div class="issue-header-title">이슈 제목</div>
+				<div class="content">
+					<div class="icon icon-read-complete"></div>
+					<div class="title">이슈 제목</div>
 				</div>
 			</div>
 		</div>

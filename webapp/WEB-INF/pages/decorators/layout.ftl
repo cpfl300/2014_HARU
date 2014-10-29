@@ -20,8 +20,6 @@
 		<sitemesh:write property='body' />
 	</div>
 
-	
-	
 	<!-- angular.js -->
 	<script type="text/javascript" src="/scripts/lib/angularjs/angular.min.js"></script>
 </body>
