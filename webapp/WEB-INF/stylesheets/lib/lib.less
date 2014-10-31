@@ -1,0 +1,27 @@
+.border-radius(@size) {
+	-moz-border-radius: @size;
+	-webkit-border-radius: @size;
+	-ms-border-radius: @size;
+	-khtml-border-radius: @size;
+	-o-border-radius: @size;
+}
+
+.box-shadow(@arguments) {
+	box-shadow: @arguments;
+	webkit-box-shadow: @arguments;
+	
+}
+.blur-filter(@arguments) {
+	-webkit-filter: blur(@arguments);
+	-moz-filter: blur(@arguments);
+	-o-filter: blur(@arguments);
+	-ms-filter: blur(@arguments);
+}
+
+.background-linear-gradient(@color1, @color2, @color3) {
+	background:-webkit-linear-gradient(@color1, @color2, @color3);
+	background:-o-linear-gradient(@color1, @color2, @color3); 
+	background:-moz-linear-gradient(@color1, @color2, @color3);
+	background:-ms-linear-gradient(@color1, @color2, @color3);
+	background:linear-gradient(@color1, @color2, @color3);	
+}

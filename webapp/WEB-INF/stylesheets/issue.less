@@ -1,0 +1,168 @@
+@import "/stylesheets/lib/lib.less";
+
+.issue {
+
+	/* issue header */
+	.issue-header {
+		width: 100%;
+		height: 40%;
+		position: relative;
+		
+		.issue-header-photo {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+		
+			background-image: url(http://imgnews.naver.net/image/001/2014/10/28/PYH2014092700040007400_P2_99_20141028163405.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			
+		}
+		
+		.issue-header-title {
+			
+			.background {
+				position: absolute;
+				bottom: 0;
+				
+				width: 100%;
+				height: 60px;
+				
+				overflow: hidden;
+				
+				.img {
+					width: 100%;
+					height: 700px;
+				}
+			}
+			
+			.content {
+				position: absolute;
+				bottom: 0;
+			
+				width: 100%;
+				height: 60px;
+
+				.icon {
+					position: absolute;
+					right: 0;
+				
+					width: 60px;
+					height: 60px;
+				}
+				
+				.title {
+					width: 100%;
+					display: inline-block;
+					
+					color: white;
+					font-size: 30px; 
+					text-align: center;
+					line-height: 60px;
+				}
+			}
+		}
+	}
+	/** 기타 요소 **/
+	.icon-read-complete {
+		background-image: url(/images/check.png);
+		background-size: cover;
+	}
+	
+	.blured-img {
+		background-image: url(http://imgnews.naver.net/image/001/2014/10/28/PYH2014092700040007400_P2_99_20141028163405.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		color: transparent;
+		.blur-filter(10px);
+	}
+	
+	
+	/* issue comment */
+	.issue-comment {
+		display: none;
+	}
+	
+	/* issue content */
+	.issue-content {
+		margin-top: 10px;
+		
+		
+		.article-card {
+			position: relative;
+			height: 90px;
+			margin: 2px 0;
+			
+			background-color: rgba(255, 255, 255, .5);
+			
+			> .article-card-state {
+				width: 100%;
+				height: 100%;
+				display: table;
+				
+				.container {
+					padding: 5px;
+					display: table-cell;
+					vertical-align: middle;
+				}
+			}
+			
+			.article-card-front {
+				.title {
+					span {
+						color: white;
+						font-size: 17px;
+					}
+				}
+			}
+			
+			.article-card-back {
+				.publisher {
+					span {
+						color: white;
+						font-size: 17px;
+					}
+				}
+				
+				.section {
+					span {
+						color: white;
+						font-size: 17px;
+					}
+				}
+			}
+		}
+		
+		
+		.front {
+			.article-card-back {
+				display: none;
+			}
+		}
+		
+		.back {
+			.article-card-front {
+				display: none;
+			}
+		
+		}
+		
+		.red {
+			.article-card {
+				background-color: rgba(255, 255, 255, .1);
+				.title {
+					span {
+						color: rgba(255, 255, 255, 0.6);
+					}
+				}
+			}
+		}
+			
+	}
+}
+
+
+
+
+
+

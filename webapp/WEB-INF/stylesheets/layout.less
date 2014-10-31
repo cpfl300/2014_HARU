@@ -1,0 +1,40 @@
+@import "/stylesheets/lib/lib.less";
+
+/* @clientHeight: `document.body.clientHeight`; */
+@clientHeight: 100%;
+@headerHeight: 40px;
+/* @availableHeight: @clientHeight - @headerHeight; */
+@availableHeight: 100%;
+
+
+html, body {
+	height: 100%;
+}
+
+html {
+	.background-linear-gradient(rgb(68, 73, 92), rgb(95, 98, 107), rgb(68, 73, 92));
+}
+
+.wrapper {
+	height: 100%;
+}
+
+#header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	
+	width: 100%;
+	height: @headerHeight;
+	
+	z-index: 100;
+}
+
+#container {
+	height: 100%;
+	
+	>div:nth-of-type(1) {
+		height: @availableHeight;
+		margin-top: @headerHeight;
+	}
+}
