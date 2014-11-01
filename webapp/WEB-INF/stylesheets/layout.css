@@ -1,0 +1,18 @@
+@CHARSET 'UTF-8';
+
+html, body {
+	height: 100%;
+}
+
+.wrapper {
+	height: 100%;
+}
+
+#container {
+	height: 100%;
+}
+
+#container >div:nth-of-type(1) {
+	height: 100%;
+	margin-top: 40px;
+}
