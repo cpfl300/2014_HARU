@@ -1,4 +1,4 @@
-package haru.controller;
+package haru.api.controller;
 
 import haru.dao.ArticleDao;
 import haru.model.Article;
@@ -9,18 +9,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class MainController {
+@RequestMapping("/api/v1")
+public class AritlceController {
 	
 	@Autowired
 	private ArticleDao articleDao;
 	
-	@RequestMapping("/")
-	public String main(Model model) {
+	@RequestMapping("/article")
+	public String getArticle(Model model) {
 		
 		Article article = articleDao.findById(1);
 		model.addAttribute("article", article);
 		
-		return "main";
+		return "article";
 	}
-
 }
