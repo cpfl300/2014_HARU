@@ -12,6 +12,19 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<org.springframework.version>4.1.1.RELEASE</org.springframework.version>
+		<org.mockito.version>1.10.8</org.mockito.version>
+		<org.freemarker.version>2.3.21</org.freemarker.version>
+		<org.sitemesh.version>3.0.0</org.sitemesh.version>
+		<ch.qos.logback.version>1.1.2</ch.qos.logback.version>
+		<junit.version>4.11</junit.version>
+		<mysql.connector.version>5.1.30</mysql.connector.version>
+		<javax.servlet.api.version>3.1.0</javax.servlet.api.version>
+		<javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
+		
+		<plugin.maven.war.version>2.4</plugin.maven.war.version>
+		<plugin.maven.eclipse.version>2.9</plugin.maven.eclipse.version>
+		<plugin.maven.compiler.version>3.1</plugin.maven.compiler.version>
+		<plugin.maven.javadoc.version>2.10.1</plugin.maven.javadoc.version>
 	</properties>
 	
 	<dependencies>
@@ -19,14 +32,14 @@
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.1.2</version>
+			<version>${ch.qos.logback.version}</version>
 		</dependency>
 		
 		<!-- junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -34,19 +47,19 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.30</version>
+			<version>${mysql.connector.version}</version>
 		</dependency>
 		
 		<!-- servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
+			<version>${javax.servlet.api.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-			<version>1.2</version>
+			<version>${javax.servlet.jstl.version}</version>
 		</dependency>
 
 		<!-- spring -->
@@ -67,19 +80,26 @@
 	        <artifactId>spring-context-support</artifactId>
 	        <version>${org.springframework.version}</version>
 	    </dependency>
+	    
+	    <!-- mockito -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>${org.mockito.version}</version>
+		</dependency>
 		
 		<!-- template engine: freemarker -->
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
-			<version>2.3.21</version>
+			<version>${org.freemarker.version}</version>
 		</dependency>
 		
 		<!-- layout engine: sitemesh -->
 		<dependency>
 		    <groupId>org.sitemesh</groupId>
 		    <artifactId>sitemesh</artifactId>
-		    <version>3.0.0</version>
+		    <version>${org.sitemesh.version}</version>
 		</dependency>
 
 	</dependencies>
@@ -110,7 +130,7 @@
 			<!-- webapp -->
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>2.4</version>
+				<version>${plugin.maven.war.version}</version>
 				<configuration>
 					<warSourceDirectory>webapp</warSourceDirectory>
 				</configuration>
@@ -119,7 +139,7 @@
 			<!-- wtp -->
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>
+				<version>${plugin.maven.eclipse.version}</version>
 				<configuration>
 					<!-- class file의 source code를 보여줌 -->
 					<downloadSources>true</downloadSources>
@@ -132,11 +152,11 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>${plugin.maven.compiler.version}</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-					<encoding>utf-8</encoding>
+					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
 
@@ -144,7 +164,7 @@
 			<plugin>
 			    <groupId>org.apache.maven.plugins</groupId>
 			    <artifactId>maven-javadoc-plugin</artifactId>
-			    <version>2.10.1</version>
+			    <version>${plugin.maven.javadoc.version}</version>
 			</plugin>
 		</plugins>
 	</build>
