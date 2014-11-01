@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Article {
 	
+	private long id;
 	private String hotIssue;
 	private String subject;
 	private String journal;
@@ -12,7 +13,8 @@ public class Article {
 	private String content;
 	private List<String> imgs;
 	
-	public Article(String hotIssue, String subject, String journal, String section, String date, String content, List<String> imgs) {
+	public Article(long id, String hotIssue, String subject, String journal, String section, String date, String content, List<String> imgs) {
+		this.id = id;
 		this.hotIssue = hotIssue;
 		this.subject = subject;
 		this.journal = journal;
@@ -22,4 +24,38 @@ public class Article {
 		this.imgs = imgs;
 	}
 
+	public long getId() {
+		return this.id;
+	}
+
+	public String getHotIssue() {
+		return hotIssue;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public String getJournal() {
+		return journal;
+	}
+
+	public String getSection() {
+		return section;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public List<String> getImgs() {
+		return imgs;
+	}
+
+	
+	
 }
