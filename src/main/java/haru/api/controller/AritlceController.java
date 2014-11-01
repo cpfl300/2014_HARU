@@ -1,4 +1,4 @@
-package haru.controller;
+package haru.api.controller;
 
 import haru.dao.ArticleDao;
 import haru.model.Article;
@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/api/v1")
 public class AritlceController {
 	
 	@Autowired
