@@ -1,0 +1,47 @@
+.article-container{
+	position: relative;
+}
+
+/* section & issue */
+.issue-container{
+	height: 50px;
+	position: relative;
+	top: 6px;
+}
+
+.section, 
+.hot-issue{
+	float: left;
+	line-height: 50px;
+	height: 100%;
+	margin: 0px 5px;
+	padding-left: 8px;
+}
+
+/* subject, datetime, publisher */
+
+.subject, .write-time, .publisher{
+	display: table;
+	margin: 0px 10px;
+}
+
+
+.subject > p, .write-time > p, .publisher > p{
+	width: 100%;
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 14px;
+}
+
+.subject > p{
+	font-size: 25px;
+}
+
+
+
+
+
+.article-content{
+	line-height: 2em;
+	padding: 10px;
+}
