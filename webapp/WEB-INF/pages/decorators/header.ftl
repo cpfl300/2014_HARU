@@ -16,6 +16,13 @@
 	<div id="container">
 		<sitemesh:write property='body' />
 	</div>
+	
+	<script type="text/javascript" src="/scripts/main/app/APP.header.js"></script>
+	<script>
+		window.addEventListener("DOMContentLoaded", function(evt){
+			APP.header.init();
+		}, false);
+	</script>
 </body>
 
 </html>
