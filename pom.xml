@@ -18,6 +18,7 @@
 		<ch.qos.logback.version>1.1.2</ch.qos.logback.version>
 		<junit.version>4.11</junit.version>
 		<mysql.connector.version>5.1.30</mysql.connector.version>
+		<dbcp2.version>2.0.1</dbcp2.version>
 		<javax.servlet.api.version>3.1.0</javax.servlet.api.version>
 		<javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
 		
@@ -48,6 +49,13 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.connector.version}</version>
+		</dependency>
+		
+		<!-- JDBC -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>${dbcp2.version}</version>
 		</dependency>
 		
 		<!-- servlet -->
