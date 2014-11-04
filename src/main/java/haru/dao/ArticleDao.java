@@ -2,34 +2,78 @@ package haru.dao;
 
 import haru.model.Article;
 
-import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository(value="articleDao")
 public class ArticleDao {
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	private RowMapper<Article> articleMapper = new RowMapper<Article> () {
+
+		@Override
+		public Article mapRow(ResultSet rs, int rowNum) throws SQLException {
+			Article article = new Article();
+			article.setId(rs.getString("id"));
+			article.setHotissue(rs.getString("hotissue"));
+			article.setSubject(rs.getString("subject"));
+			article.setJournal(rs.getString("journal"));
+			article.setSection(rs.getString("section"));
+			article.setDate(rs.getString("date"));
+			article.setContent(rs.getString("content"));
+			
+			return article;
+		}
+		
+	};
 	
 
 	public void add(Article article) {
-		article.getId();
+		this.jdbcTemplate.update(
+				"insert into articles(id, hotissue, subject, journal, section, date, content) values (?,?,?,?,?,?,?)",
+				article.getId(),
+				article.getHotissue(),
+				article.getSubject(),
+				article.getJournal(),
+				article.getSection(),
+				article.getDate(),
+				article.getContent()
+		);
 	}
 
 	public int getCount() {
 		
-		return 0;
+		return this.jdbcTemplate.queryForInt(
+				"select count(*) from articles");
 	}
 
-	public Article findById(long id) {
-		String ip = "http://10.73.45.130:8080";
+	public Article get(String id) {
 		
-		List<String> article1Imgs = new ArrayList<String>();
-		article1Imgs.add(ip + "/images/test/article1-1.png");
-		article1Imgs.add(ip + "/images/test/article1-2.png");
-		article1Imgs.add(ip + "/images/test/article1-3.png");
-		Article article1 = new Article(id, "hotissue1", "journal1", "subject1", "section1", "date1", "content1", article1Imgs);
-		
-		return article1;
+		return this.jdbcTemplate.queryForObject(
+					"select * from articles where id = ?",
+					new Object[]{id},
+					this.articleMapper
+				);
 	}
+
+	
+	public void deleteAll() {
+		this.jdbcTemplate.update("delete from articles");
+	}
+
+	public List<Article> getAll() {
+		return this.jdbcTemplate.query(
+					"select * from articles",
+					this.articleMapper
+				);
+	}
+	
 
 }
