@@ -17,7 +17,7 @@ public class MainController {
 	@RequestMapping("/")
 	public String main(Model model) {
 		
-		Article article = articleDao.findById(1);
+		Article article = articleDao.get("article1");
 		model.addAttribute("article", article);
 		
 		return "main";
