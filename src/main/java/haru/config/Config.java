@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 @org.springframework.context.annotation.Configuration
 @ComponentScan(basePackages={"haru.dao"})
@@ -24,5 +25,10 @@ public class Config {
 		ds.setUsername(env.getRequiredProperty("database.username"));
 		ds.setPassword(env.getRequiredProperty("database.password"));
 		return ds;
+	}
+	
+	@Bean
+	public JdbcTemplate jdbcTemplate() {
+		return new JdbcTemplate(dataSource());
 	}
 }
