@@ -7,6 +7,7 @@
 
 	<display-name>Haru Web Application</display-name>
 
+	<!-- Listeners -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
