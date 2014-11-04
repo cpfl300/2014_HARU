@@ -10,6 +10,8 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/layout.css" />
 	
 	<sitemesh:write property='head' />
+	
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 
 <body>
