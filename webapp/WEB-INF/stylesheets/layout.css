@@ -12,7 +12,7 @@ html, body {
 	height: 100%;
 }
 
-#container >div:nth-of-type(1) {
+#container >div {
 	height: 100%;
 	margin-top: 40px;
 }

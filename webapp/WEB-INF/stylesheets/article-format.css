@@ -1,5 +1,7 @@
 .article-container{
-	position: relative;
+	background-color: white;
+	position: absolute;
+	width: 100%;
 }
 
 /* section & issue */
