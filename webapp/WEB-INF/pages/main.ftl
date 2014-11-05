@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/article-format.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/flip.css">
 	<script type="text/javascript" src="scripts/main/mayfly/MAYFLY.flicking.js"></script>
-	<script type="text/javascript" src="scripts/main/app/article.js"></script>
+	<script type="text/javascript" src="scripts/main/app/APP.article.js"></script>
 	
 </head>
 <body>
@@ -91,7 +91,7 @@
 csm77@newsis.com
 		</div>
 	</div>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"/>
+	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"/> -->
 </body>
 
 </html>
