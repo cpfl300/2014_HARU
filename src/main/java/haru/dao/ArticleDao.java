@@ -50,8 +50,7 @@ public class ArticleDao {
 
 	public int getCount() {
 		
-		return this.jdbcTemplate.queryForInt(
-				"select count(*) from articles");
+		return this.jdbcTemplate.queryForInt("select count(*) from articles");
 	}
 
 	public Article get(String id) {
