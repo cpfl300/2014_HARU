@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/api/v1")
-public class AritlceController {
+public class AritlceApiController {
 	
 	@Autowired
 	private ArticleDao articleDao;
