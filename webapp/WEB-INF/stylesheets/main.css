@@ -1,0 +1,116 @@
+@CHARSET 'UTF-8';
+
+.article-issue {
+	display: table;
+	height: 5%;
+	text-align: center;
+	position: relative;
+}
+
+.article-issue .article-issue-title {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+}
+	
+.article-issue .article-issue-comment {
+	margin-top: 5px;
+	position: absolute;
+	right: 1%;
+	top: 0;
+}
+	
+.article-issue .article-issue-title {
+}
+
+
+/* 댓글영역 */
+.article-comment {
+	display: none;
+}
+
+/* 기사 본문영역 */
+.article-content {
+	position: relative;
+	height: 82.6%;
+}
+
+.article-content .article-info {
+	width: 100%;
+	height: 15%;
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.article-info .publisher {
+	height: 100%;
+	width: 28%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.article-info .publisher img{
+	position: absolute;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+	
+.article-info .title {
+	width: 72%;
+	height: 70%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding-left: 10px;
+	padding-top: 8px;
+	display: table;
+}
+
+.article-info .title  .article-title {
+	display: table-cell;
+	vertical-align: middle;
+	position: absolute;
+	width: 90%;
+	height: 100%;	
+	font-size: 20px;
+} 
+	
+.article-info .date{
+	width: 72%;
+	height: 30%;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	padding-left: 10px;
+	padding-top: 5px;
+	font-size: 13px;
+}
+
+	
+.article-content .article-data {
+	width: 100%;
+}
+
+
+.article-content .article-data .photo >img{
+	width: 100%;
+}	
+
+.article-content .article-data .content {
+	padding: 9px 20px;
+	line-height: 25px;
+}
+
+
+.article-content .indicator{
+	position: absolute;
+	bottom: 13px;
+	width: 100%;
+	text-align: center;
+}
+

@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @org.springframework.context.annotation.Configuration
 @ComponentScan(basePackages={"haru.dao"})
 @PropertySource(value="classpath:application-properties.xml")
-public class Config {
+public class TestConfig {
 	@Resource
 	private Environment env;
 	
@@ -21,7 +21,7 @@ public class Config {
 	public DataSource dataSource(){
 		BasicDataSource ds = new BasicDataSource();
 		ds.setDriverClassName(env.getRequiredProperty("database.driverClassName"));
-		ds.setUrl(env.getRequiredProperty("database.url"));
+		ds.setUrl(env.getRequiredProperty("database.testUrl"));
 		ds.setUsername(env.getRequiredProperty("database.username"));
 		ds.setPassword(env.getRequiredProperty("database.password"));
 		return ds;

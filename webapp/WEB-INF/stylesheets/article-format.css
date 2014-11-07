@@ -1,0 +1,71 @@
+.article-container{
+	background-color: white;
+	position: absolute;
+	width: 100%;
+}
+
+/* section & issue */
+.issue-container{
+	height: 50px;
+	position: relative;
+	top: 5px;
+	margin-bottom: 6px;
+	border-bottom: solid 1px rgb(51, 182, 0);
+}
+
+.section, 
+.hot-issue{
+	float: left;
+	line-height: 32px;
+	height: 100%;
+	padding: 10px;
+}
+
+.section{
+	background-color: rgb(51, 182, 0);
+}
+
+/* subject, datetime, publisher */
+
+.subject, .write-time, .publisher{
+	display: table;
+	margin: 0px 10px;
+}
+
+
+.subject > p, .write-time > p, .publisher > p{
+	width: 100%;
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 14px;
+}
+
+.write-time > p, .publisher > p{
+	color: rgb(95, 95, 95);
+}
+
+.subject{
+	margin-bottom: 5px;
+	margin-top: 15px;
+}
+
+.subject > p{
+	font-size: 25px;
+}
+
+hr{
+	width: 95%;
+	border: 1px solid rgb(211, 211, 211);
+	margin-top: 20px;
+}
+
+.article-content{
+	line-height: 2em;
+	padding: 0px 10px 10px 10px;
+}
+
+/* 기사 안의 사진 */
+.article-image{
+	margin: 15px 0px;
+	width: 100%;
+}

@@ -1,0 +1,18 @@
+@CHARSET 'UTF-8';
+
+html, body {
+	margin-bottom: 20px;
+}
+
+.wrapper {
+	height: 100%;
+}
+
+#container {
+	height: 100%;
+}
+
+#container >div {
+	height: 100%;
+	margin-top: 40px;
+}

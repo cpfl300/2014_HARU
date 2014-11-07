@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+#front{
+	z-index: 210;
+}
+
+#back{
+	z-index: 200;
+}
+
+
+.flipped{
+	-webkit-transform: rotatey(-180deg);
+}
+
+.article-container{
+	-webkit-perspective: 800;
+	-webkit-transform-style: preserve-3d;
+  	-webkit-transition: 0.5s;
+  	-webkit-backface-visibility: hidden;
+}

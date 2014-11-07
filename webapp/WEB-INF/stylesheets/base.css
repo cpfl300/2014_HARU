@@ -1,0 +1,59 @@
+@CHARSET 'UTF-8';
+
+/* Base rules */
+html, 
+body,
+div,
+h1, h2, h3, h4, h5, h6, 
+p {
+	margin: 0;
+	padding: 0;	
+	
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body,
+input, textarea,
+select,
+button,
+table,
+h1, h2, h3, h4, h5 {
+	font-family: 'HelveticaNeue Light', 'Apple SD Gothic Neo', 'Nanum Gothic', 'Malgun Gothic', dotum, sans-serif;
+	font-size: 15px;
+	color: #222;
+	-webkit-font-smoothing: antialiased;
+}
+
+/** Stop Safari Mobile from giving input buttons rounded corners **/
+/** Text wont center in a button **/
+input, textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  padding: 0px;
+}
+
+ul,
+h1, h2, h3, h4, h5 ,h6 {
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	-webkit-padding-start: 0;
+	-moz-padding-start: 0;
+}
+
+ul, li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+a:link, a:visited, a:hover {
+	color:#222;
+}
+
+button:focus {
+	outline-style: none;
+}
