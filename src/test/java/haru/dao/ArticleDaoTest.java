@@ -86,6 +86,58 @@ public class ArticleDaoTest {
 	}
 	
 	@Test
+	public void getIssue() {
+		articleDao.deleteAll();
+		assertThat(articleDao.getCount(), is(0));
+		
+		articleDao.add(article1);
+		articleDao.add(article2);
+		
+		Article articleGet1 = articleDao.getHotissue("article1");
+		assertThat(articleGet1.getId(), is(article1.getId()));
+		assertThat(articleGet1.getHotissue(), is(article1.getHotissue()));
+		
+		Article articleGet2 = articleDao.getHotissue("article2");
+		assertThat(articleGet2.getId(), is(article2.getId()));
+		assertThat(articleGet2.getHotissue(), is(article2.getHotissue()));
+	}
+	
+	@Test
+	public void getLatestIssues() {
+		articleDao.deleteAll();
+		assertThat(articleDao.getCount(), is(0));
+		
+		articleDao.add(article1);
+		List<Article> article1_1 = articleDao.getLatestHotissues(1);
+		assertThat(article1_1.size(), is(1));
+		assertThat(article1_1.get(0).getId(), is(article1.getId()));
+		
+		
+		articleDao.add(article2);
+		List<Article> article2_1 = articleDao.getLatestHotissues(1);
+		assertThat(article2_1.size(), is(1));
+		assertThat(article2_1.get(0).getId(), is(article1.getId()));
+		
+		List<Article> article2_2 = articleDao.getLatestHotissues(2);
+		assertThat(article2_2.size(), is(2));
+		assertThat(article2_2.get(1).getId(), is(article2.getId()));
+		
+		
+		articleDao.add(article3);
+		List<Article> article3_1 = articleDao.getLatestHotissues(1);
+		assertThat(article3_1.size(), is(1));
+		assertThat(article3_1.get(0).getId(), is(article1.getId()));
+		
+		List<Article> article3_2 = articleDao.getLatestHotissues(2);
+		assertThat(article3_2.size(), is(2));
+		assertThat(article3_2.get(1).getId(), is(article2.getId()));
+		
+		List<Article> article3_3 = articleDao.getLatestHotissues(3);
+		assertThat(article3_3.size(), is(3));
+		assertThat(article3_3.get(2).getId(), is(article3.getId()));
+	}
+	
+	@Test
 	public void getAll() {
 		articleDao.deleteAll();
 		assertThat(articleDao.getCount(), is(0));

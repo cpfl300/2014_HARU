@@ -1,22 +1,7 @@
-
-# refinery
-## refinery user
-create database refinery;
-grant usage on refinery.* to refinery@localhost identified by 'refinery';
-grant select, insert, update, delete on refinery.* to refinery@localhost;
-flush privileges;
-
 # haru
 # haru_test
 create database haru;
 create database haru_test;
-
-## haru user
-grant usage on haru.* to haru@'%' identified by 'haru';
-grant select, insert, update, delete on haru.* to haru@'%';	
-
-grant usage on haru_test.* to haru@'%' identified by 'haru';
-grant select, insert, update, delete on haru_test.* to haru@'%';
 
 ## table
 ### articles

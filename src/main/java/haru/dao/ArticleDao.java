@@ -34,6 +34,19 @@ public class ArticleDao {
 		
 	};
 	
+	private RowMapper<Article> issueMapper = new RowMapper<Article> () {
+
+		@Override
+		public Article mapRow(ResultSet rs, int rowNum) throws SQLException {
+			Article article = new Article();
+			article.setId(rs.getString("id"));
+			article.setHotissue(rs.getString("hotissue"));
+			
+			return article;
+		}
+		
+	};
+	
 
 	public void add(Article article) {
 		this.jdbcTemplate.update(
@@ -71,6 +84,34 @@ public class ArticleDao {
 		return this.jdbcTemplate.query(
 					"select * from articles",
 					this.articleMapper
+				);
+	}
+
+	public Article getHotissue(String id) {
+		return this.jdbcTemplate.queryForObject(
+					"select id, hotissue from articles where id = ?",
+					new Object[]{id},
+					new RowMapper<Article> () {
+
+						@Override
+						public Article mapRow(ResultSet rs, int rowNum) throws SQLException {
+							Article article = new Article();
+							article.setId(rs.getString("id"));
+							article.setHotissue(rs.getString("hotissue"));
+							
+							return article;
+						}
+						
+					}
+				);
+	}
+
+	public List<Article> getLatestHotissues(int size) {
+		
+		return this.jdbcTemplate.query(
+					"select id, hotissue from articles limit ?",
+					new Object[]{size},
+					this.issueMapper
 				);
 	}
 	

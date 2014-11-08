@@ -21,7 +21,7 @@ public class Config {
 	public DataSource dataSource(){
 		BasicDataSource ds = new BasicDataSource();
 		ds.setDriverClassName(env.getRequiredProperty("database.driverClassName"));
-		ds.setUrl(env.getRequiredProperty("database.url"));
+		ds.setUrl(env.getRequiredProperty("database.testUrl"));
 		ds.setUsername(env.getRequiredProperty("database.username"));
 		ds.setPassword(env.getRequiredProperty("database.password"));
 		return ds;
