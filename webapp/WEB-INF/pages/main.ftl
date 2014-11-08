@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>main view</title>
-	
+<title>main view</title>
+
 </head>
 <body>
-	main page
+	<div style="height:60px;"></div>
+	<h1>main page issue</h1>
+	<div class="issue-image">
+		<img src="${imageUrl}" />
+	</div>
+	<div>
+		<#list haruHotissues as article>
+			${article.hotissue} <br>
+		</#list>
+	</div>
 	
-	issue title = ${issue.title}
 </body>
 
 </html>

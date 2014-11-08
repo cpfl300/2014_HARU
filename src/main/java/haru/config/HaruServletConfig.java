@@ -1,7 +1,9 @@
 package haru.config;
 
+import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.mock.web.MockServletContext;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -10,7 +12,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
 @org.springframework.context.annotation.Configuration
-@ComponentScan(basePackages={"haru.controller"})
+@ComponentScan(basePackages={"haru.controller", "haru.api.controller", "haru.service"})
 @EnableWebMvc
 public class HaruServletConfig extends WebMvcConfigurerAdapter{
 	
@@ -44,4 +46,5 @@ public class HaruServletConfig extends WebMvcConfigurerAdapter{
 	    registry.addResourceHandler("/scripts/**").addResourceLocations("/WEB-INF/scripts/");
 	    registry.addResourceHandler("/stylesheets/**").addResourceLocations("/WEB-INF/stylesheets/");
 	}
+
 }
