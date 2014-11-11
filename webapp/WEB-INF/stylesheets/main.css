@@ -21,7 +21,7 @@
 	bottom: 0;
 	height: 100px;
 	color: white;
-	font-size: 50px;
+	font-size: 45px;
 	width: 100%;
 	line-height: 100px;
 	background-color: rgba(29, 29, 29, 0.93);
@@ -29,12 +29,22 @@
 
 .list-lists{
 	position: relative;
-	background-color: rgba(29, 29, 29, 0.88);
 	height: 30%;
 }
 
-.issue{
+.issue-container{
 	position: relative;
 	height: 65px;
 	color: white;
+	display: table;
+	width: 100%;
+	background-color: rgba(29, 29, 29, 0.84);
+	border-bottom: 1px solid rgba(128, 128, 128, 0.08);
+}
+
+.issue{
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 15px;
+	font-size: 25px;
 }

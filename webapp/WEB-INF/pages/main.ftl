@@ -12,7 +12,11 @@
 				</div>
 				<div class="list-lists">
 					<#list haruHotissues as article>
-						<div class="issue"> ${article.hotissue}</div>
+						<div class="issue-container">
+						 	<div class="issue">
+						 		${article.hotissue}
+						 	</div>
+						 </div>
 					</#list>
 				</div>
 			</div>
