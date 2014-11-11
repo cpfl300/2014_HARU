@@ -8,7 +8,7 @@
 		<div class="list-background">
 			<div class="list-move-container">
 				<div class="list-date-container">
-					<div class="datetime"></div>
+					<div class="datetime"> 2014.11.11 </div>
 				</div>
 				<div class="list-lists">
 					<#list haruHotissues as article>

@@ -3,3 +3,38 @@
 	background-image: url(http://cfile206.uf.daum.net/image/2732C53752B56A5C22D709);
 	background-size: cover;
 }
+
+.list-move-container{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+.list-date-container{
+	position: relative;
+	height: 60%;
+	text-align: center;
+}
+
+.datetime{
+	position: absolute;
+	bottom: 0;
+	height: 100px;
+	color: white;
+	font-size: 50px;
+	width: 100%;
+	line-height: 100px;
+	background-color: rgba(29, 29, 29, 0.93);
+}
+
+.list-lists{
+	position: relative;
+	background-color: rgba(29, 29, 29, 0.88);
+	height: 30%;
+}
+
+.issue{
+	position: relative;
+	height: 65px;
+	color: white;
+}
