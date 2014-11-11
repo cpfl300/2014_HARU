@@ -23,10 +23,10 @@
 }
 /** header - Theme  **/
 #header {
-	background-color: rgba(255, 255, 255, .95);
+	background-color: rgba(255, 255, 255, 0.1);
 
-	box-shadow: 0 1px 0 0 #E6E6E6;
-	webkit-box-shadow: 0 1px 0 0 #E6E6E6;
+	box-shadow: 0 1px rgba(255, 255, 255, 0.1);
+	webkit-box-shadow: 0 1px rgba(255, 255, 255, 0.1);
 }
 
 
