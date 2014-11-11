@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>main view</title>
-
+	<title>main view</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
 </head>
 	<body>
 		<div class="list-background">
