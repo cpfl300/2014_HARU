@@ -36,7 +36,6 @@ var MoveList = {
 		touchend: function(e){
 			e.preventDefault();
 			cancelAnimationFrame(this.id);
-			console.log("지금 margin은? " + this.curTop);
 
 			var minimumMargin = -(document.querySelector('.list-lists').children.length * 65) + (65*3);
 			if(this.curTop > 0){

@@ -2,12 +2,13 @@
 .list-background{
 	background-image: url(http://cfile206.uf.daum.net/image/2732C53752B56A5C22D709);
 	background-size: cover;
+	overflow: hidden;
 }
 
 .list-move-container{
 	height: 100%;
 	width: 100%;
-	position: absolute;
+	position: relative;
 }
 
 .list-date-container{
