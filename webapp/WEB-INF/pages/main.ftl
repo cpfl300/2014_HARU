@@ -3,6 +3,7 @@
 <head>
 	<title>main view</title>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+	<script type="text/javascript" src="/scripts/main/app/APP.list-move.js"></script>
 </head>
 	<body>
 		<div class="list-background">
