@@ -8,8 +8,8 @@ function list_move_init(){
 var MoveList = {
 		init: function(target){
 			this.target = target;
-			this.curMarginTop = 0;
-			this.target.style.webkitTransform = 'translate3d(0, '+ this.curMarginTop +'px, 0)';
+			this.curTop = 0;
+			this.target.style.webkitTransform = 'translate3d(0, '+ this.curTop +'px, 0)';
 			this.eventBind();
 			this.clock = document.querySelector('.datetime');
 			this.clockOpacity = 1;
@@ -28,7 +28,7 @@ var MoveList = {
 		touchmove: function(e){
 			e.preventDefault();
 			var moveDistance = this.curPoint - e.changedTouches[0].pageY;
-			this.curMarginTop -= moveDistance;
+			this.curTop -= moveDistance;
 			this.curPoint = e.changedTouches[0].pageY;
 			
 			this.clockOpacity -= moveDistance/100;
@@ -36,9 +36,24 @@ var MoveList = {
 		touchend: function(e){
 			e.preventDefault();
 			cancelAnimationFrame(this.id);
+			console.log("지금 margin은? " + this.curTop);
+
+			var minimumMargin = -(document.querySelector('.list-lists').children.length * 65) + (65*3);
+			if(this.curTop > 0){
+				this.curTop = 0;
+				this.clockOpacity = 1;
+			}
+			if(this.curTop < minimumMargin){
+				this.curTop = minimumMargin;
+				this.clockOpacity = 1 + (minimumMargin/100);
+			}
+			
+			this.target.style.webkitTransform = 'translate3d(0, '+ this.curTop +'px, 0)';
+			this.clock.style.opacity = this.clockOpacity;
+			
 		},
 		animate: function(){
-			this.target.style.webkitTransform = 'translate3d(0, '+ this.curMarginTop +'px, 0)';
+			this.target.style.webkitTransform = 'translate3d(0, '+ this.curTop +'px, 0)';
 			this.clock.style.opacity = this.clockOpacity;
 			this.id = requestAnimationFrame(this.animate.bind(this));
 		}
