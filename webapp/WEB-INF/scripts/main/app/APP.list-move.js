@@ -11,6 +11,9 @@ var MoveList = {
 			this.curMarginTop = 0;
 			this.target.style.webkitTransform = 'translate3d(0, '+ this.curMarginTop +'px, 0)';
 			this.eventBind();
+			this.clock = document.querySelector('.datetime');
+			this.clockOpacity = 1;
+			this.clock.style.opacity = 1;
 		},
 		eventBind: function(){
 			this.target.addEventListener('touchstart', this.touchstart.bind(this));
@@ -27,6 +30,8 @@ var MoveList = {
 			var moveDistance = this.curPoint - e.changedTouches[0].pageY;
 			this.curMarginTop -= moveDistance;
 			this.curPoint = e.changedTouches[0].pageY;
+			
+			this.clockOpacity -= moveDistance/100;
 		},
 		touchend: function(e){
 			e.preventDefault();
@@ -34,6 +39,7 @@ var MoveList = {
 		},
 		animate: function(){
 			this.target.style.webkitTransform = 'translate3d(0, '+ this.curMarginTop +'px, 0)';
+			this.clock.style.opacity = this.clockOpacity;
 			this.id = requestAnimationFrame(this.animate.bind(this));
 		}
 }
