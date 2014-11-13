@@ -22,12 +22,12 @@
 	margin-top: 12px;
 }
 /** header - Theme  **/
-#header {
+/* #header {
 	background-color: rgba(255, 255, 255, 0.1);
 
 	box-shadow: 0 1px rgba(255, 255, 255, 0.1);
 	webkit-box-shadow: 0 1px rgba(255, 255, 255, 0.1);
-}
+} */
 
 
 /*  header-logo  */
@@ -43,11 +43,7 @@
 	font-family: AdelleBold, sans-serif;
 	text-transform: none;
 	font-size: 1.7em;
-	color: #383838;
-	text-shadow: 0px 0px 2px rgba(0,0,0,.7);
-	-webkit-background-clip: text;
-	   -moz-background-clip: text;
-	        background-clip: text;
+	color: white;
 	
 	padding-left: 5px;
 	letter-spacing: 5px;

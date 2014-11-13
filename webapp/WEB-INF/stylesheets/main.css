@@ -1,6 +1,6 @@
 /* list화면의 배경 설정 */
 .list-background{
-	background-image: url(http://cfile206.uf.daum.net/image/2732C53752B56A5C22D709);
+	background-image: url(http://cdn.wallwuzz.com/uploads/tokyo-wallpaper-photography-city-scape-cityscape-grayscale-styles-cityscapes-wallwuzz-hd-wallpaper-20342.jpeg);
 	background-size: cover;
 	overflow: hidden;
 }
@@ -20,12 +20,12 @@
 .datetime{
 	position: absolute;
 	bottom: 0;
-	height: 100px;
-	color: white;
-	font-size: 45px;
+	height: 80px;
+	color: black;
+	font-size: 35px;
 	width: 100%;
-	line-height: 100px;
-	background-color: rgba(29, 29, 29, 0.93);
+	line-height: 80px;
+	background-color: rgba(255, 255, 255, 0.7);
 }
 
 .list-lists{
@@ -36,16 +36,16 @@
 .issue-container{
 	position: relative;
 	height: 65px;
-	color: white;
+	color: black;
 	display: table;
 	width: 100%;
-	background-color: rgba(29, 29, 29, 0.84);
-	border-bottom: 1px solid rgba(128, 128, 128, 0.08);
+	background-color: rgba(255, 255, 255, 0.6);
+	border-bottom: 2px solid rgba(0, 0, 0, 0.08);
 }
 
 .issue{
 	display: table-cell;
 	vertical-align: middle;
 	padding-left: 15px;
-	font-size: 25px;
+	font-size: 20px;
 }
