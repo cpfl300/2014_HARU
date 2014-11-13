@@ -9,7 +9,7 @@ public class SiteMeshFilter extends ConfigurableSiteMeshFilter {
 	@Override
 	protected void applyCustomConfiguration(SiteMeshFilterBuilder builder) {
 		builder
-		.addDecoratorPaths("/*", "/decorators/header", "/decorators/layout");
+		.addDecoratorPaths("*", "/decorators/header", "/decorators/layout");
 		
 		builder
 		.addTagRuleBundle (new DivExtractingTagRuleBundle());
