@@ -9,11 +9,21 @@
 
 <body>
 	<div class="article-container">
-		<div class="meta-data">
+		<div class="imgContainer">
+			<img src="http://imgnews.naver.net/image/003/2014/11/13/NISI20141113_0010346722_web_99_20141113121804.jpg">
+			<div class="blured-div">
+				<img class="blur-img" src="http://imgnews.naver.net/image/003/2014/11/13/NISI20141113_0010346722_web_99_20141113121804.jpg">
+			</div>
 			<div class="issue-container">
 				<div class="section">정치</div>
 				<div class="hot-issue">여당, 공무원연금법 개정안 제출</div>
 			</div>
+		</div>
+		<div class="meta-data">
+			<!-- <div class="issue-container">
+				<div class="section">정치</div>
+				<div class="hot-issue">여당, 공무원연금법 개정안 제출</div>
+			</div> -->
 			<div class="subject-container">
 				<div class="subject">
 					<p>[공무원연금 쟁점]국회의원 연금은 있다?없다?</p>

@@ -7,10 +7,11 @@
 /* section & issue */
 .issue-container{
 	height: 50px;
-	position: relative;
-	top: 5px;
-	margin-bottom: 6px;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
 	border-bottom: solid 1px rgb(51, 182, 0);
+	z-index: 20;
 }
 
 .section, 
@@ -19,6 +20,11 @@
 	line-height: 32px;
 	height: 100%;
 	padding: 10px;
+}
+
+.hot-issue{
+	color: white;
+	font-weight: bolder;
 }
 
 .section{
@@ -46,7 +52,7 @@
 
 .subject{
 	margin-bottom: 5px;
-	margin-top: 15px;
+	margin-top: 10px;
 }
 
 .subject > p{
@@ -64,8 +70,35 @@ hr{
 	padding: 0px 10px 10px 10px;
 }
 
-/* 기사 안의 사진 */
-.article-image{
-	margin: 15px 0px;
+/* 사진 영역 */
+.imgContainer{
+	position: relative;
+	height: 250px;
+	padding-top: 44px;
+	overflow: hidden;
+}
+
+.imgContainer >img{
+	position: absolute;
 	width: 100%;
+	z-index: 5;
+}
+
+.blured-div{
+	height: 50px;
+	z-index: 10;
+	position: absolute;
+	bottom: 0;
+	overflow: hidden;
+}
+
+.blur-img{
+	width: 100%;
+	margin-top: -156px;
+	
+	filter: blur(10px);
+	-webkit-filter: blur(10px);
+	-moz-filter: blur(10px);
+	-o-filter: blur(10px);
+	-ms-filter: blur(10px);
 }
