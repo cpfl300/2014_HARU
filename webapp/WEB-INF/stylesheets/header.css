@@ -22,12 +22,13 @@
 	margin-top: 12px;
 }
 /** header - Theme  **/
-/* #header {
-	background-color: rgba(255, 255, 255, 0.1);
+#header {
+	background-color: rgba(255, 255, 255, 0);
+/* 	background-color: rgba(255, 255, 255, 0.1);
 
 	box-shadow: 0 1px rgba(255, 255, 255, 0.1);
-	webkit-box-shadow: 0 1px rgba(255, 255, 255, 0.1);
-} */
+	webkit-box-shadow: 0 1px rgba(255, 255, 255, 0.1); */
+}
 
 
 /*  header-logo  */
@@ -42,7 +43,7 @@
 .header-logo span {
 	font-family: AdelleBold, sans-serif;
 	text-transform: none;
-	font-size: 1.7em;
+	font-size: 2em;
 	color: white;
 	
 	padding-left: 5px;
