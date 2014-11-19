@@ -3,13 +3,39 @@ window.addEventListener('DOMContentLoaded', list_move_init);
 function list_move_init(){
 	document.addEventListener('touchmove', function (e) { e.preventDefault();}, false);
 
+//	cell단위로 움직일 수 있게 함
 	$('.movable').pep({
 		useCSSTranslation: false,
 		axis: 'y'
 	});
+//	issue의 첫번째 cell 위치 조정(library적용으로 position: absolute가 되면서 생기는 문제)
+	$('.issue-container')[0].style.top = '384px';
 	
-//	var willMoved = document.querySelector('.list-move-container');
-//	MoveList.init(willMoved);
+//	초기화면 정렬(issue 첫번째 cell을 기준으로 정렬)
+	arrange($('.issue-container')[0]);
+	
+}
+
+function arrange(target){
+	
+	var below = target;
+	var targetTop = parseInt(target.style.top);
+	var i = 1;
+	while(below.nextElementSibling){
+		below.nextElementSibling.style.top = targetTop + 65*i + 'px';
+		i++;
+		below = below.nextElementSibling;
+	}
+	
+	var j = -1;
+	while(target.previousElementSibling){
+		target.previousElementSibling.style.top = targetTop + 65*j +'px';
+		j--;
+		target = target.previousElementSibling;
+	}
+	
+//	684는 초기에 list첫번째에 부여한 top값
+	$('.movable')[0].style.top = targetTop-384 +'px';
 }
 
 /*
