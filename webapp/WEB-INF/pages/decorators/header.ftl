@@ -9,7 +9,7 @@
 <body>
 	<div id="header">
 		<h1 class="header-logo">
-			<a href="/"><span  class="">HARU</span></a>
+			<a href="/"><span  class="logo">HARU</span></a>
 		</h1>
 	</div>
 	
@@ -18,11 +18,11 @@
 	</div>
 	
 	<script type="text/javascript" src="/scripts/main/app/APP.header.js"></script>
-	<script>
+<!-- 	<script>
 		window.addEventListener("DOMContentLoaded", function(evt){
 			APP.header.init();
 		}, false);
-	</script>
+	</script> -->
 </body>
 
 </html>

@@ -1,10 +1,18 @@
-window.addEventListener('load', list_move_init);
+window.addEventListener('DOMContentLoaded', list_move_init);
 
 function list_move_init(){
-	var willMoved = document.querySelector('.list-move-container');
-	MoveList.init(willMoved);
+	document.addEventListener('touchmove', function (e) { e.preventDefault();}, false);
+
+	$('.movable').pep({
+		useCSSTranslation: false,
+		axis: 'y'
+	});
+	
+//	var willMoved = document.querySelector('.list-move-container');
+//	MoveList.init(willMoved);
 }
 
+/*
 var MoveList = {
 		init: function(target){
 			this.target = target;
@@ -21,6 +29,12 @@ var MoveList = {
 			this.header = document.querySelector('#header');
 			this.header.style.backgroundColor = "rgba(255, 255, 255, 0)";
 			this.headerOpacity = parseInt(this.header.style.backgroundColor.split(", ")[3].split(")")[0]);
+			
+//			logo font-color
+			this.logo = document.querySelector('.logo');
+			this.logo.style.color = "rgb(255, 255, 255)";
+			this.logoColor = 255;
+			
 			
 		},
 		eventBind: function(){
@@ -43,6 +57,8 @@ var MoveList = {
 			
 			if(-320 <= parseInt(this.curTop) && parseInt(this.curTop) <= -240){
 				this.headerOpacity += moveDistance*0.01089;
+				this.logoColor -= moveDistance*3.17;
+				console.log(this.logoColor);
 			}
 			
 			
@@ -57,6 +73,7 @@ var MoveList = {
 				this.clockOpacity = 1;
 				
 				this.headerOpacity = 0;
+				this.logoColor = 255;
 			}
 			if(this.curTop < minimumMargin){
 				this.curTop = minimumMargin;
@@ -74,6 +91,9 @@ var MoveList = {
 			this.clock.style.opacity = this.clockOpacity;
 			
 			this.header.style.backgroundColor = "rgba(255, 255, 255, "+this.headerOpacity+")";
+			
+			this.logo.style.color = "rgb("+parseInt(this.logoColor)+", "+parseInt(this.logoColor)+", "+parseInt(this.logoColor)+")";
 			this.id = requestAnimationFrame(this.animate.bind(this));
 		}
 }
+*/
