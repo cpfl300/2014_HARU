@@ -5,7 +5,7 @@ function list_move_init(){
 	document.addEventListener('touchmove', function (e) { 
 		e.preventDefault();
 //		움직임 체크하는 함수.. 위면 elasticUpA~ 아래면 elasticDownA~
-		elasticUpArrange(e.target);
+		elasticDownArrange(e.target);
 	}, false);
 
 //	cell단위로 움직일 수 있게 함
@@ -48,6 +48,17 @@ function elasticUpArrange(target){
 	if($(target).hasClass('issue')){
 		target = target.parentElement;
 	}
+
+//	var l = 1;
+	
+	if($(target).hasClass('datetime')){
+		// 다음 엘리먼트의 top조정하기 (targetTop + 90)
+		var cellFirst = $('.movable')[1];
+		cellFirst.style.top = parseFloat(target.style.top) + 90 + 'px';
+		target = cellFirst;
+		// i = 2로 갱신
+//		l = 2;
+	}
 	
 	var below = target;
 	var targetTop = parseFloat(target.style.top);
@@ -55,6 +66,7 @@ function elasticUpArrange(target){
 		targetTop = 0;
 	}
 	var i = 1;
+	
 	var belowArr = getArr(2, 5);
 	while(below.nextElementSibling){
 		var weight = belowArr[i];
@@ -63,6 +75,7 @@ function elasticUpArrange(target){
 		}
 		below.nextElementSibling.style.top = targetTop + 65*i + weight + 'px';
 		i++;
+//		l++;
 		below = below.nextElementSibling;
 	}
 	
@@ -84,6 +97,16 @@ function elasticDownArrange(target){
 	
 	if($(target).hasClass('issue')){
 		target = target.parentElement;
+	}
+	
+//	var l = 1;
+	if($(target).hasClass('datetime')){
+		// 다음 엘리먼트의 top조정하기 (targetTop + 90)
+		var cellFirst = $('.movable')[1];
+		cellFirst.style.top = parseFloat(target.style.top) + 70 + 'px';
+		target = cellFirst;
+		// i = 2로 갱신
+//		l = 2;
 	}
 	
 	var below = target;
