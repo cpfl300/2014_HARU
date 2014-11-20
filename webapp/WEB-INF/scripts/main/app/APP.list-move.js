@@ -1,7 +1,12 @@
 window.addEventListener('DOMContentLoaded', list_move_init);
 
 function list_move_init(){
-	document.addEventListener('touchmove', function (e) { e.preventDefault();}, false);
+//	moveDirection.init();
+	document.addEventListener('touchmove', function (e) { 
+		e.preventDefault();
+//		움직임 체크하는 함수.. 위면 elasticUpA~ 아래면 elasticDownA~
+		elasticUpArrange(e.target);
+	}, false);
 
 //	cell단위로 움직일 수 있게 함
 	$('.movable').pep({
@@ -19,7 +24,7 @@ function list_move_init(){
 function arrange(target){
 	
 	var below = target;
-	var targetTop = parseInt(target.style.top);
+	var targetTop = parseFloat(target.style.top);
 	var i = 1;
 	while(below.nextElementSibling){
 		below.nextElementSibling.style.top = targetTop + 65*i + 'px';
@@ -34,10 +39,109 @@ function arrange(target){
 		target = target.previousElementSibling;
 	}
 	
-//	684는 초기에 list첫번째에 부여한 top값
-	$('.movable')[0].style.top = targetTop-384 +'px';
+//	80은 datetime의 height값 
+	$('.movable')[0].style.top = targetTop - 80 +'px';
 }
 
+function elasticUpArrange(target){
+	
+	if($(target).hasClass('issue')){
+		target = target.parentElement;
+	}
+	
+	var below = target;
+	var targetTop = parseFloat(target.style.top);
+	if(isNaN(targetTop)){
+		targetTop = 0;
+	}
+	var i = 1;
+	var belowArr = getArr(2, 5);
+	while(below.nextElementSibling){
+		var weight = belowArr[i];
+		if(weight == undefined){
+			weight = belowArr[belowArr.length-1];
+		}
+		below.nextElementSibling.style.top = targetTop + 65*i + weight + 'px';
+		i++;
+		below = below.nextElementSibling;
+	}
+	
+	var j = -1;
+	var k = 1;
+	while(target.previousElementSibling){
+		var weight = belowArr[k];
+		if(weight == undefined){
+			weight = belowArr[belowArr.length-1];
+		}
+		target.previousElementSibling.style.top = targetTop + 65*j + weight + 'px';
+		j--;
+		k++;
+		target = target.previousElementSibling;
+	}
+}
+
+function elasticDownArrange(target){
+	
+	if($(target).hasClass('issue')){
+		target = target.parentElement;
+	}
+	
+	var below = target;
+	var targetTop = parseFloat(target.style.top);
+	if(isNaN(targetTop)){
+		targetTop = 0;
+	}
+	var i = 1;
+	var belowArr = getArr(-2, 5);
+	while(below.nextElementSibling){
+		var weight = belowArr[i];
+		if(weight == undefined){
+			weight = belowArr[belowArr.length-1];
+		}
+		below.nextElementSibling.style.top = targetTop + 65*i + weight + 'px';
+		i++;
+		below = below.nextElementSibling;
+	}
+	
+	var j = -1;
+	var k = 1;
+	while(target.previousElementSibling){
+		var weight = belowArr[k];
+		if(weight == undefined){
+			weight = belowArr[belowArr.length-1];
+		}
+		target.previousElementSibling.style.top = targetTop + 65*j + weight + 'px';
+		j--;
+		k++;
+		target = target.previousElementSibling;
+	}
+}
+
+function getArr(step, count){
+	var arr = [0];
+	var pre = 0;
+	var j = count;
+	for(var i = 1; i <=count; i++){
+		arr[i] = pre+(step*j);
+		pre = arr[i];
+		j--;
+	}
+	return arr;
+}
+//var moveDirection = {
+//	init : function(){
+//		document.addEventListener('touchstart', this.touchstart);
+//		document.addEventListener('touchend', this.touchend);
+//	},
+//	
+//	touchstart: function(){
+////		console.log("start");
+//	},
+//	
+//	touchend: function(){
+////		console.log("end");
+//	}
+//};
 /*
 var MoveList = {
 		init: function(target){

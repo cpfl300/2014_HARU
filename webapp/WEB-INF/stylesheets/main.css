@@ -12,15 +12,13 @@
 }
 
 .list-date-container{
-	position: relative;
+	position: absolute;
 	height: 60%;
 	width: 100%;
 	text-align: center;
 }
 
 .datetime{
-	position: absolute;
-	bottom: 0;
 	height: 80px;
 	color: black;
 	font-size: 35px;

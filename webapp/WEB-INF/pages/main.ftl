@@ -10,8 +10,8 @@
 	<body>
 		<div class="list-background">
 			<div class="list-move-container">
-				<div class="list-date-container movable">
-					<div class="datetime"> 2014.11.11 </div>
+				<div class="list-date-container">
+					<div class="datetime movable"> 2014.11.11 </div>
 				</div>
 				<div class="list-lists">
 					<#list haruHotissues as article>
