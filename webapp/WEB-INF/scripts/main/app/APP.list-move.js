@@ -22,6 +22,15 @@ function list_move_init(){
 }
 
 function arrange(target){
+	if($(target).hasClass('issue')){
+		target = target.parentElement;
+	}
+	
+	if($(target).hasClass('datetime')){
+		var cellFirst = $('.movable')[1];
+		cellFirst.style.top = parseFloat(target.style.top) + 80 + 'px';
+		target = cellFirst;
+	}
 	
 	var below = target;
 	var targetTop = parseFloat(target.style.top);
@@ -49,15 +58,11 @@ function elasticUpArrange(target){
 		target = target.parentElement;
 	}
 
-//	var l = 1;
-	
 	if($(target).hasClass('datetime')){
-		// 다음 엘리먼트의 top조정하기 (targetTop + 90)
 		var cellFirst = $('.movable')[1];
+		// 다음 엘리먼트의 top조정하기 (targetTop + 90)
 		cellFirst.style.top = parseFloat(target.style.top) + 90 + 'px';
 		target = cellFirst;
-		// i = 2로 갱신
-//		l = 2;
 	}
 	
 	var below = target;
@@ -99,14 +104,11 @@ function elasticDownArrange(target){
 		target = target.parentElement;
 	}
 	
-//	var l = 1;
 	if($(target).hasClass('datetime')){
-		// 다음 엘리먼트의 top조정하기 (targetTop + 90)
 		var cellFirst = $('.movable')[1];
+		// 다음 엘리먼트의 top조정하기 (targetTop + 70)
 		cellFirst.style.top = parseFloat(target.style.top) + 70 + 'px';
 		target = cellFirst;
-		// i = 2로 갱신
-//		l = 2;
 	}
 	
 	var below = target;
