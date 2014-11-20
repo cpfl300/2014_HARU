@@ -40,7 +40,7 @@ function arrange(target){
 	}
 	
 //	80은 datetime의 height값 
-	$('.movable')[0].style.top = targetTop - 80 +'px';
+	$('.movable')[0].style.top = parseFloat($('.issue-container')[0].style.top) - 80 +'px';
 }
 
 function elasticUpArrange(target){
