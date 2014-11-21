@@ -46,7 +46,7 @@ var MoveList = {
 		},
 		touchend: function(e){
 			e.preventDefault();
-
+			setTimeout(function(){this.boundaryCheck()}.bind(this), 900);
 //			var minimumMargin = -(document.querySelector('.list-lists').children.length * 65) + (65*3);
 //			if(this.curTop > 0){
 //				this.curTop = 0;
@@ -71,5 +71,15 @@ var MoveList = {
 			
 			this.header.style.backgroundColor = "rgba(255, 255, 255, "+this.headerOpacity+")";
 			this.id = requestAnimationFrame(this.animate.bind(this));
+		},
+		boundaryCheck: function(){
+			var minimumTop = -$('.issue-container').length*65 + $(window).height()*0.4;
+			var curTop = parseFloat($('.list-move-container')[0].style.top);
+			if(curTop < minimumTop){
+				$('.list-move-container')[0].style.top = minimumTop + 'px';
+			}
+			if(curTop > 0){
+				$('.list-move-container')[0].style.top = '0px';
+			}
 		}
 }
