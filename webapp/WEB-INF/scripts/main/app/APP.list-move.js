@@ -1,14 +1,29 @@
 window.addEventListener('load', list_move_init);
 
 function list_move_init(){
+	setPos();
 	MoveList.init($('.list-move-container'));
 }
 
 var MoveList = {
 		init: function(target){
 			target.pep({
+//				moveTo : function(x,y){
+////					this.$el -> 움직일 엘리먼트
+//				},
 				useCSSTranslation: false,
-				axis: 'y'
+				axis: 'y',
+				velocityMultiplier: 2.5,
+				start: function(){
+					this.currentTop = parseFloat($('.list-move-container')[0].style.top);
+//					console.log(this); // MoveList
+				}.bind(this),
+				easing: function(){
+					var moveDistance = parseFloat($('.list-move-container')[0].style.top) - this.currentTop;
+					console.log(moveDistance);
+					this.currentTop = parseFloat($('.list-move-container')[0].style.top);
+				}.bind(this)
+				
 			});
 			
 			this.target = target[0];
@@ -46,7 +61,7 @@ var MoveList = {
 		},
 		touchend: function(e){
 			e.preventDefault();
-			setTimeout(function(){this.boundaryCheck()}.bind(this), 900);
+			setTimeout(function(){this.boundaryCheck()}.bind(this), 350);
 //			var minimumMargin = -(document.querySelector('.list-lists').children.length * 65) + (65*3);
 //			if(this.curTop > 0){
 //				this.curTop = 0;
@@ -66,9 +81,7 @@ var MoveList = {
 			
 		},
 		animate: function(){
-			this.target.style.webkitTransform = 'translate3d(0, '+ this.curTop +'px, 0)';
 			this.clock.style.opacity = this.clockOpacity;
-			
 			this.header.style.backgroundColor = "rgba(255, 255, 255, "+this.headerOpacity+")";
 			this.id = requestAnimationFrame(this.animate.bind(this));
 		},
@@ -82,4 +95,9 @@ var MoveList = {
 				$('.list-move-container')[0].style.top = '0px';
 			}
 		}
+}
+
+function setPos(){
+	var datetimePos = $('.datetime')[0].offsetTop;
+	$('.datetime img')[0].style.marginTop= -datetimePos+'px';
 }
