@@ -8,6 +8,7 @@ function list_move_init(){
 var MoveList = {
 		init: function(target){
 			this.fixedMarginTop = this.firstMargin;
+			this.fixedListMarginTop = this.listImgMargin;
 			this.id;
 			
 			this.target = target[0];
@@ -16,31 +17,20 @@ var MoveList = {
 			myScroll.on('scrollStart', function(){
 				MoveList.id = requestAnimationFrame(MoveList.setBlur);
 				MoveList.fixedMarginTop = -this.y + MoveList.firstMargin;
+				MoveList.fixedListMarginTop = -this.y + MoveList.listImgMargin;
 			});
 			
 			myScroll.on('scroll', function(){
 				MoveList.fixedMarginTop = -this.y + MoveList.firstMargin;
+				MoveList.fixedListMarginTop = -this.y + MoveList.listImgMargin;
 			});
 			
 			myScroll.on('scrollEnd', function(){
 				MoveList.fixedMarginTop = -this.y + MoveList.firstMargin;
+				MoveList.fixedListMarginTop = -this.y + MoveList.listImgMargin;
 				cancelAnimationFrame(MoveList.id);
 			});
 			
-			
-//			myScroll.on('scroll', function(){
-//				console.log("SCROLL이벤트 먹기는 함" + this.y);
-////				var matrix = $('.list-move-container').css('-webkit-transform');
-////				var splitMatrix = matrix.split(", ");
-////				var curPos = parseFloat(splitMatrix[splitMatrix.length-1].split(")")[0]);
-////				
-////				var fixedMarginTop = -curPos - 305 + 'px';
-////				console.log("curPos: " + curPos);
-////				console.log("fixedMarginTop: " + fixedMarginTop);
-////				
-////				$('.datetime img').css('margin-top', fixedMarginTop);
-////				console.log("fixed");
-//			});
 			this.eventBind();
 		},
 		eventBind: function(){
@@ -64,6 +54,7 @@ var MoveList = {
 		},
 		setBlur: function(){
 			$('.datetime img').css('margin-top', MoveList.fixedMarginTop+'px');
+			$('.list-lists img').css('margin-top', MoveList.fixedListMarginTop+'px');
 			this.id = requestAnimationFrame(MoveList.setBlur.bind(MoveList));
 		},
 		boundaryCheck: function(){
@@ -83,7 +74,9 @@ function setPos(){
 	var datetimeHeight = 80;
 	$('.list-date-container')[0].style.height = datetimeContainerSize + 'px';
 	
-//	var datetimePos = $('.datetime').offset().top;
 	$('.datetime img')[0].style.marginTop= -(datetimeContainerSize - datetimeHeight +1)+'px';
 	MoveList.firstMargin = -(datetimeContainerSize - datetimeHeight +1);
+	
+	$('.list-lists img')[0].style.marginTop = -datetimeContainerSize +'px';
+	MoveList.listImgMargin = -datetimeContainerSize;
 }

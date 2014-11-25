@@ -19,6 +19,7 @@
 				</div>
 			</div>
 			<div class="list-lists">
+				<img src="http://cdn.wallwuzz.com/uploads/tokyo-wallpaper-photography-city-scape-cityscape-grayscale-styles-cityscapes-wallwuzz-hd-wallpaper-20342.jpeg"/>
 				<#list haruHotissues as article>
 				<div class="issue-container">
 					<div class="issue">${article.hotissue}</div>

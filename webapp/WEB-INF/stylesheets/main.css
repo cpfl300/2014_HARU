@@ -33,6 +33,13 @@
 .list-lists{
 	position: relative;
 	height: 30%;
+	overflow: hidden;
+}
+
+.list-lists > img{
+	position: absolute;
+	left: 0;
+	top: 0;
 }
 
 .issue-container{
