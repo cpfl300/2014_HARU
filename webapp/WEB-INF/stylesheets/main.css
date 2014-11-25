@@ -28,7 +28,6 @@
 	width: 100%;
 	line-height: 80px;
 	overflow: hidden;
-	background-color: rgba(255, 255, 255, 0.7);
 }
 
 .list-lists{
@@ -53,15 +52,33 @@
 	font-size: 20px;
 }
 
-/* .datetime > img{
-	z-index: 50;
+.datetime > p{
+	position: absolute;
+	z-index: 20;
+	width: 100%;
+	height: 100%;
+}
+
+
+.datetime > img{
+	z-index: 10;
+	position: absolute;
+	left: 0;
+	top: 0;
 	
 	filter: blur(3px);
 	-webkit-filter: blur(3px);
 	-moz-filter: blur(3px);
 	-o-filter: blur(3px);
-	-ms-filter: blur(3px); 
+	-ms-filter: blur(3px);
 }
+
+.whiten{
+	background-color: rgba(255, 255, 255, 0.6);
+	z-index: 15;
+}
+
+/* 
 
 .transitionEffect{
 	pserspective: 1000ms;

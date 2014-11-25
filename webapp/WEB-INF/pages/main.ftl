@@ -13,7 +13,7 @@
 		<div class="list-move-container">
 			<div class="list-date-container">
 				<div class="datetime">
-					<!-- <img src="http://cdn.wallwuzz.com/uploads/tokyo-wallpaper-photography-city-scape-cityscape-grayscale-styles-cityscapes-wallwuzz-hd-wallpaper-20342.jpeg"/> -->
+					<img src="http://cdn.wallwuzz.com/uploads/tokyo-wallpaper-photography-city-scape-cityscape-grayscale-styles-cityscapes-wallwuzz-hd-wallpaper-20342.jpeg"/>
 					<p class="whiten"></p>
 					<p>2014.11.11</p>
 				</div>

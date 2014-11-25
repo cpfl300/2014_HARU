@@ -45,6 +45,6 @@ var MoveList = {
 function setPos(){
 	$('.list-date-container')[0].style.height = $(window).height()*0.6 + 'px';
 	
-//	var datetimePos = $('.datetime').offset().top;
-//	$('.datetime img')[0].style.marginTop= -datetimePos+'px';
+	var datetimePos = $('.datetime').offset().top;
+	$('.datetime img')[0].style.marginTop= -datetimePos+'px';
 }
