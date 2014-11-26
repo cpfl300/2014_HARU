@@ -12,6 +12,7 @@ var MoveList = {
 			this.id;
 			this.datetimeOpacity;
 			this.headerOpacity;
+			this.headerColor;
 			
 			this.target = target[0];
 			myScroll = new IScroll('.list-background', { probeType: 3, mouseWheel: true });
@@ -32,10 +33,13 @@ var MoveList = {
 				
 				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
 					MoveList.headerOpacity = 0;
+					MoveList.headerColor = 255;
 				}else if(this.y <= -(MoveList.datetimeContainerSize - 44)){
 					MoveList.headerOpacity = 1;
+					MoveList.headerColor = 0;
 				}else{
-					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65
+					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65;
+					MoveList.headerColor = 255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255;
 				}
 			});
 			
@@ -54,10 +58,13 @@ var MoveList = {
 				
 				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
 					MoveList.headerOpacity = 0;
+					MoveList.headerColor = 255;
 				}else if(this.y <= -(MoveList.datetimeContainerSize - 44)){
 					MoveList.headerOpacity = 1;
+					MoveList.headerColor = 0;
 				}else{
-					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65
+					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65;
+					MoveList.headerColor = 255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255;
 				}
 			});
 			
@@ -76,10 +83,13 @@ var MoveList = {
 				
 				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
 					MoveList.headerOpacity = 0;
+					MoveList.headerColor = 255;
 				}else if(this.y <= -(MoveList.datetimeContainerSize - 44)){
 					MoveList.headerOpacity = 1;
+					MoveList.headerColor = 0;
 				}else{
-					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65
+					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65;
+					MoveList.headerColor = 255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255;
 				}
 				
 				cancelAnimationFrame(MoveList.id);
@@ -101,11 +111,6 @@ var MoveList = {
 		touchend: function(e){
 			e.preventDefault();
 		},
-		animate: function(){
-			this.clock.style.opacity = this.clockOpacity;
-			this.header.style.backgroundColor = "rgba(255, 255, 255, "+this.headerOpacity+")";
-			this.id = requestAnimationFrame(this.animate.bind(this));
-		},
 		setBlur: function(){
 			$('.datetime img').css('margin-top', MoveList.fixedMarginTop+'px');
 			
@@ -114,9 +119,12 @@ var MoveList = {
 			$('.datetime').css('opacity', MoveList.datetimeOpacity);
 			
 			$('#header').css('background-color', 'rgba(255, 255, 255, '+MoveList.headerOpacity+')');
+			
+			$('.header-logo span').css('color', 'rgb('+MoveList.headerColor+', '+MoveList.headerColor+', '+MoveList.headerColor+')');
 			this.id = requestAnimationFrame(MoveList.setBlur.bind(MoveList));
 		},
 		boundaryCheck: function(){
+//			스크롤 개선때 사용할 것. 세부 내용은 수정 예정
 			var minimumTop = -$('.issue-container').length*65 + $(window).height()*0.4;
 			var curTop = parseFloat($('.list-move-container')[0].style.top);
 			if(curTop < minimumTop){
