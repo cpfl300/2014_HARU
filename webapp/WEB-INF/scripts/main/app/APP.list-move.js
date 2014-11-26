@@ -10,6 +10,7 @@ var MoveList = {
 			this.fixedMarginTop = this.firstMargin;
 			this.fixedListMarginTop = this.listImgMargin;
 			this.id;
+			this.datetimeOpacity;
 			
 			this.target = target[0];
 			myScroll = new IScroll('.list-background', { probeType: 3, mouseWheel: true });
@@ -17,17 +18,45 @@ var MoveList = {
 			myScroll.on('scrollStart', function(){
 				MoveList.id = requestAnimationFrame(MoveList.setBlur);
 				MoveList.fixedMarginTop = -this.y + MoveList.firstMargin;
+				
 				MoveList.fixedListMarginTop = -this.y + MoveList.listImgMargin;
+				
+				if(this.y >= 0){
+					MoveList.datetimeOpacity = 1;
+				}else if(this.y < -65){
+					MoveList.datetimeOpacity = 0;
+				}else{
+					MoveList.datetimeOpacity = 1-Math.abs(this.y)/65;
+				}
 			});
 			
 			myScroll.on('scroll', function(){
 				MoveList.fixedMarginTop = -this.y + MoveList.firstMargin;
+				
 				MoveList.fixedListMarginTop = -this.y + MoveList.listImgMargin;
+				
+				if(this.y >= 0){
+					MoveList.datetimeOpacity = 1;
+				}else if(this.y < -65){
+					MoveList.datetimeOpacity = 0;
+				}else{
+					MoveList.datetimeOpacity = 1-Math.abs(this.y)/65;
+				}
 			});
 			
 			myScroll.on('scrollEnd', function(){
 				MoveList.fixedMarginTop = -this.y + MoveList.firstMargin;
+				
 				MoveList.fixedListMarginTop = -this.y + MoveList.listImgMargin;
+				
+				if(this.y >= 0){
+					MoveList.datetimeOpacity = 1;
+				}else if(this.y < -65){
+					MoveList.datetimeOpacity = 0;
+				}else{
+					MoveList.datetimeOpacity = 1-Math.abs(this.y)/65;
+				}
+				
 				cancelAnimationFrame(MoveList.id);
 			});
 			
@@ -54,7 +83,10 @@ var MoveList = {
 		},
 		setBlur: function(){
 			$('.datetime img').css('margin-top', MoveList.fixedMarginTop+'px');
+			
 			$('.list-lists img').css('margin-top', MoveList.fixedListMarginTop+'px');
+			
+			$('.datetime').css('opacity', MoveList.datetimeOpacity);
 			this.id = requestAnimationFrame(MoveList.setBlur.bind(MoveList));
 		},
 		boundaryCheck: function(){
