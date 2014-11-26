@@ -102,3 +102,13 @@ hr{
 	-o-filter: blur(10px);
 	-ms-filter: blur(10px);
 }
+
+/** header - Theme  **/
+#header {
+	background-color: rgba(255, 255, 255, .85);
+}
+
+/** header-logo - Theme  **/
+.header-logo span {
+	color: rgb(38, 38, 38);
+}

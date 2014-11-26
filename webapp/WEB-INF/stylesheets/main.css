@@ -79,14 +79,17 @@
 	z-index: 15;
 }
 
-/* 
+/** layout **/
+#container {
+	position: fixed;
+}
 
-.transitionEffect{
-	pserspective: 1000ms;
-	-webkit-perspective: 1000ms;
-	-webkit-backface-visibility: hidden;
-	        backface-visibility: hidden;
-  	-webkit-transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1);
-  	        transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1);
-} 
-*/
+/** header - Theme  **/
+#header {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+/** header-logo - Theme  **/
+.header-logo span {
+	color: white;
+}

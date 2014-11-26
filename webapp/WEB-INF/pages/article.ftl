@@ -5,6 +5,9 @@
 	<sitemesh:write property='head' />
 	
 	<link rel="stylesheet" type="text/css" href="/stylesheets/article-format.css">
+	
+	<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <body>

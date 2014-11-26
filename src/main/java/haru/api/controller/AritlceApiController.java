@@ -20,7 +20,6 @@ public class AritlceApiController {
 		
 		Article article = articleDao.get("article1");
 		model.addAttribute("article", article);
-		
 		return "article";
 	}
 }
