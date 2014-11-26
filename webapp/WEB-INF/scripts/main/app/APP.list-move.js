@@ -39,7 +39,7 @@ var MoveList = {
 					MoveList.headerColor = 0;
 				}else{
 					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65;
-					MoveList.headerColor = 255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255;
+					MoveList.headerColor = parseInt(255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255);
 				}
 			});
 			
@@ -64,7 +64,7 @@ var MoveList = {
 					MoveList.headerColor = 0;
 				}else{
 					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65;
-					MoveList.headerColor = 255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255;
+					MoveList.headerColor = parseInt(255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255);
 				}
 			});
 			
@@ -89,7 +89,7 @@ var MoveList = {
 					MoveList.headerColor = 0;
 				}else{
 					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65;
-					MoveList.headerColor = 255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255;
+					MoveList.headerColor = parseInt(255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255);
 				}
 				
 				cancelAnimationFrame(MoveList.id);
