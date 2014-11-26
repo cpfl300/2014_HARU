@@ -11,6 +11,7 @@ var MoveList = {
 			this.fixedListMarginTop = this.listImgMargin;
 			this.id;
 			this.datetimeOpacity;
+			this.headerOpacity;
 			
 			this.target = target[0];
 			myScroll = new IScroll('.list-background', { probeType: 3, mouseWheel: true });
@@ -28,6 +29,14 @@ var MoveList = {
 				}else{
 					MoveList.datetimeOpacity = 1-Math.abs(this.y)/65;
 				}
+				
+				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
+					MoveList.headerOpacity = 0;
+				}else if(this.y <= -(MoveList.datetimeContainerSize - 44)){
+					MoveList.headerOpacity = 1;
+				}else{
+					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65
+				}
 			});
 			
 			myScroll.on('scroll', function(){
@@ -42,6 +51,14 @@ var MoveList = {
 				}else{
 					MoveList.datetimeOpacity = 1-Math.abs(this.y)/65;
 				}
+				
+				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
+					MoveList.headerOpacity = 0;
+				}else if(this.y <= -(MoveList.datetimeContainerSize - 44)){
+					MoveList.headerOpacity = 1;
+				}else{
+					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65
+				}
 			});
 			
 			myScroll.on('scrollEnd', function(){
@@ -55,6 +72,14 @@ var MoveList = {
 					MoveList.datetimeOpacity = 0;
 				}else{
 					MoveList.datetimeOpacity = 1-Math.abs(this.y)/65;
+				}
+				
+				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
+					MoveList.headerOpacity = 0;
+				}else if(this.y <= -(MoveList.datetimeContainerSize - 44)){
+					MoveList.headerOpacity = 1;
+				}else{
+					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65
 				}
 				
 				cancelAnimationFrame(MoveList.id);
@@ -87,6 +112,8 @@ var MoveList = {
 			$('.list-lists img').css('margin-top', MoveList.fixedListMarginTop+'px');
 			
 			$('.datetime').css('opacity', MoveList.datetimeOpacity);
+			
+			$('#header').css('background-color', 'rgba(255, 255, 255, '+MoveList.headerOpacity+')');
 			this.id = requestAnimationFrame(MoveList.setBlur.bind(MoveList));
 		},
 		boundaryCheck: function(){
@@ -103,6 +130,7 @@ var MoveList = {
 
 function setPos(){
 	var datetimeContainerSize = $(window).height()*0.6;
+	MoveList.datetimeContainerSize = datetimeContainerSize;
 	var datetimeHeight = 80;
 	$('.list-date-container')[0].style.height = datetimeContainerSize + 'px';
 	
