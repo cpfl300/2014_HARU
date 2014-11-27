@@ -1,9 +1,8 @@
 package haru.config;
 
-import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.mock.web.MockServletContext;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -11,14 +10,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
-@org.springframework.context.annotation.Configuration
-@ComponentScan(basePackages={"haru.controller", "haru.api.controller", "haru.service"})
+@Configuration
+@ComponentScan(basePackages={"haru.controller"})
 @EnableWebMvc
 public class HaruServletConfig extends WebMvcConfigurerAdapter{
 	
 	@Bean
     public ViewResolver viewResolver() {
-		
 		// viewResolver를 freemarker로 지정
         FreeMarkerViewResolver viewResolver = new FreeMarkerViewResolver();
         viewResolver.setOrder(1);
@@ -32,7 +30,6 @@ public class HaruServletConfig extends WebMvcConfigurerAdapter{
 	
 	@Bean
 	public FreeMarkerConfigurer freeMarkerConfig() {
-
 	    FreeMarkerConfigurer configurer = new FreeMarkerConfigurer();
 	    configurer.setTemplateLoaderPath("/WEB-INF/pages");
 

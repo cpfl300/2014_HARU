@@ -20,9 +20,9 @@
 			</div>
 			<div class="list-lists">
 				<img src="http://cdn.wallwuzz.com/uploads/tokyo-wallpaper-photography-city-scape-cityscape-grayscale-styles-cityscapes-wallwuzz-hd-wallpaper-20342.jpeg"/>
-				<#list haruHotissues as article>
+				<#list hotissues as hoissue>
 				<div class="issue-container">
-					<div class="issue">${article.hotissue}</div>
+					<div class="issue">${hoissue.name}</div>
 				</div>
 				</#list>
 			</div>
