@@ -9,6 +9,14 @@
 	<name>Haru Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	
+	<repositories>
+		<repository>
+		    <id>spring-snapshot</id>
+		    <name>Spring Maven SNAPSHOT Repository</name>
+		    <url>http://repo.springsource.org/libs-snapshot</url>
+		</repository>
+	</repositories>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<org.springframework.version>4.1.1.RELEASE</org.springframework.version>
@@ -87,6 +95,14 @@
 			<version>${org.springframework.version}</version>
 		</dependency>
 		
+		<!-- spring test mvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test-mvc</artifactId>
+			<version>1.0.0.BUILD-SNAPSHOT</version>
+			<scope>test</scope>
+		</dependency>
+		
 		<!-- needed for freemarker FreeMarkerConfigurer stuff -->
 		<dependency>
 	        <groupId>org.springframework</groupId>
@@ -138,6 +154,12 @@
 				</excludes>
 			</resource>
 		</resources>	
+		
+		<testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
 
 		<plugins>
 			<!-- webapp -->
@@ -146,6 +168,7 @@
 				<version>${plugin.maven.war.version}</version>
 				<configuration>
 					<warSourceDirectory>webapp</warSourceDirectory>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
 

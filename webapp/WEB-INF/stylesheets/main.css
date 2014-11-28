@@ -1,116 +1,95 @@
-@CHARSET 'UTF-8';
-
-.article-issue {
-	display: table;
-	height: 5%;
-	text-align: center;
-	position: relative;
-}
-
-.article-issue .article-issue-title {
-	display: table-cell;
-	vertical-align: middle;
-	width: 100%;
-}
-	
-.article-issue .article-issue-comment {
-	margin-top: 5px;
+.list-background{
 	position: absolute;
-	right: 1%;
 	top: 0;
-}
-	
-.article-issue .article-issue-title {
-}
-
-
-/* 댓글영역 */
-.article-comment {
-	display: none;
-}
-
-/* 기사 본문영역 */
-.article-content {
-	position: relative;
-	height: 82.6%;
-}
-
-.article-content .article-info {
-	width: 100%;
-	height: 15%;
-	position: relative;
-	margin-bottom: 10px;
-}
-
-.article-info .publisher {
-	height: 100%;
-	width: 28%;
-	position: absolute;
-	left: 0;
-	top: 0;
-}
-
-.article-info .publisher img{
-	position: absolute;
-	margin: auto;
-	top: 0;
-	left: 0;
-	right: 0;
 	bottom: 0;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
 }
 
-	
-.article-info .title {
-	width: 72%;
-	height: 70%;
+.list-move-container{
 	position: absolute;
-	right: 0;
-	top: 0;
-	padding-left: 10px;
-	padding-top: 8px;
-	display: table;
+	z-index: 10;
+	width: 100%;
 }
 
-.article-info .title  .article-title {
-	display: table-cell;
-	vertical-align: middle;
+.list-date-container{
+	position: relative;
+	text-align: center;
+
+}
+
+.datetime{
 	position: absolute;
-	width: 90%;
-	height: 100%;	
-	font-size: 20px;
-} 
-	
-.article-info .date{
-	width: 72%;
+	bottom: 0;
+	height: 80px;
+	color: black;
+	font-size: 35px;
+	width: 100%;
+	line-height: 80px;
+	overflow: hidden;
+}
+
+.list-lists{
+	position: relative;
 	height: 30%;
+	overflow: hidden;
+}
+
+.list-lists > img{
 	position: absolute;
-	right: 0;
-	bottom: 0;
-	padding-left: 10px;
-	padding-top: 5px;
-	font-size: 13px;
+	left: 0;
+	top: 0;
 }
 
-	
-.article-content .article-data {
+.issue-container{
+	position: relative;
+	height: 65px;
+	color: black;
+	display: table;
 	width: 100%;
+	background-color: rgba(255, 255, 255, 0.6);
+	border-bottom: 2px solid rgba(0, 0, 0, 0.08);
 }
 
-
-.article-content .article-data .photo >img{
-	width: 100%;
-}	
-
-.article-content .article-data .content {
-	padding: 9px 20px;
-	line-height: 25px;
+.issue{
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 15px;
+	font-size: 20px;
 }
 
-
-.article-content .indicator{
+.datetime > p{
 	position: absolute;
-	bottom: 13px;
+	z-index: 20;
 	width: 100%;
-	text-align: center;
+	height: 100%;
 }
 
+
+.datetime > img{
+	z-index: 10;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.whiten{
+	background-color: rgba(255, 255, 255, 0.6);
+	z-index: 15;
+}
+
+/** layout **/
+#container {
+	position: fixed;
+}
+
+/** header - Theme  **/
+#header {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+/** header-logo - Theme  **/
+.header-logo span {
+	color: white;
+}

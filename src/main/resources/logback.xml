@@ -8,6 +8,7 @@
 	</appender>
 	
 	<logger name="haru" level="DEBUG" />
+	<logger name="refinery" level="DEBUG" />
 
 	<root level="INFO">
 		<appender-ref ref="STDOUT" />
