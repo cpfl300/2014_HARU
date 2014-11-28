@@ -1,5 +1,7 @@
 package haru.controller;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +25,10 @@ public class MainController {
 		
 		String imageUrl = "/images/test/main_issue.jpg";
 		
-		List<Hotissue> hotissues = hotissueService.getByServiceDate(RefineryUtils.getToday());
+//		Date date = RefineryUtils.getNow();
+		Date date = RefineryUtils.getDate(2014, Calendar.NOVEMBER, 28, 6);
+		
+		List<Hotissue> hotissues = hotissueService.getByServiceDate(date);
 		
 		model.addAttribute("hotissues", hotissues);
 		model.addAttribute("imageUrl", imageUrl);
