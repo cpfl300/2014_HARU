@@ -10,11 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import refinery.model.Article;
-import refinery.model.Hotissue;
-import refinery.service.ArticleService;
-import refinery.service.HotissueService;
-import refinery.utility.RefineryUtils;
+import elixir.model.Article;
+import elixir.model.Hotissue;
+import elixir.service.ArticleService;
+import elixir.service.HotissueService;
+import elixir.utility.ElixirUtils;
 
 @Controller
 @RequestMapping("/article")
@@ -34,8 +34,8 @@ public class ArticleController {
 		
 		String articleImageUrl = getArticleImage();
 		
-//		Date date = RefineryUtils.getNow();
-		Date date = RefineryUtils.getDate(2014, Calendar.NOVEMBER, 28, 6);
+//		Date date = ElixirUtils.getNow();
+		Date date = ElixirUtils.getDate(2014, Calendar.NOVEMBER, 28, 6);
 		
 		Article article = articleService.getBySequenceAndServiceDate(sequence, date);
 		Hotissue hotissue = hotissueService.getById(article.getHotissue().getId());
