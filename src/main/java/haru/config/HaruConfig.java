@@ -15,7 +15,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages={"haru", "refinery"})
+@ComponentScan(basePackages={"haru", "elixir"})
 @PropertySource(value="classpath:application-properties.xml")
 @EnableTransactionManagement
 public class HaruConfig {

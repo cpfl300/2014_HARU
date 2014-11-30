@@ -9,9 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import refinery.model.Hotissue;
-import refinery.service.HotissueService;
-import refinery.utility.RefineryUtils;
+import elixir.model.Hotissue;
+import elixir.service.HotissueService;
+import elixir.utility.ElixirUtils;
 
 @Controller
 @RequestMapping("/")
@@ -25,8 +25,8 @@ public class MainController {
 		
 		String imageUrl = "/images/test/main_issue.jpg";
 		
-//		Date date = RefineryUtils.getNow();
-		Date date = RefineryUtils.getDate(2014, Calendar.NOVEMBER, 28, 6);
+//		Date date = ElixirUtils.getNow();
+		Date date = ElixirUtils.getDate(2014, Calendar.NOVEMBER, 28, 6);
 		
 		List<Hotissue> hotissues = hotissueService.getByServiceDate(date);
 		
