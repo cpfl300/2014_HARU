@@ -15,7 +15,7 @@ var MoveList = {
 			this.headerColor;
 			
 			this.target = target[0];
-			myScroll = new IScroll('.list-background', { probeType: 3, mouseWheel: false });
+			myScroll = new IScroll('.list-background', { probeType: 3, mouseWheel: false, click: true});
 			
 			myScroll.on('scrollStart', function(){
 				MoveList.id = requestAnimationFrame(MoveList.setBlur);
