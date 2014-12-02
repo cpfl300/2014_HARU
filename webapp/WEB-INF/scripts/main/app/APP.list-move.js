@@ -2,7 +2,7 @@ window.addEventListener('load', list_move_init);
 document.addEventListener('DOMContentLoaded', setPos);
 function list_move_init(){
 	MoveList.init($('.list-move-container'));
-	
+	LocalStorage.run();
 }
 
 var MoveList = {
@@ -136,6 +136,25 @@ var MoveList = {
 		},
 };
 
+
+var LocalStorage = {
+	run: function(){
+		this.init();
+	},
+	init: function(){
+//		console.log("local storage가 없으면 생성.");
+		if(localStorage.getItem("haru") == null){
+			var tmpDic = {};
+			for(var i = 0 ; i < $('.issue-container').length; i++){
+				var key = "key값으로 date가 YYMMDD형식으로 들어감";
+				tmpDic[key] = 0;
+			}
+//			localStorage.setItem("haru", JSON.stringify(tmpDic));
+		}
+		
+//		localStorage 읽어서 UI에 적용하기
+	}
+}
 function setPos(){
 	var datetimeContainerSize = $(window).height()*0.6;
 	MoveList.datetimeContainerSize = datetimeContainerSize;
