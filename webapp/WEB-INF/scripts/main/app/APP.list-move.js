@@ -146,13 +146,30 @@ var LocalStorage = {
 		if(localStorage.getItem("haru") == null){
 			var tmpDic = {};
 			for(var i = 0 ; i < $('.issue-container').length; i++){
-				var key = "key값으로 date가 YYMMDD형식으로 들어감";
+				var key = $('.issue-container')[i].dataset.date;
 				tmpDic[key] = 0;
 			}
-//			localStorage.setItem("haru", JSON.stringify(tmpDic));
+			localStorage.setItem("haru", JSON.stringify(tmpDic));
 		}
 		
+		this.applyList();
+	},
+	applyList: function(){
 //		localStorage 읽어서 UI에 적용하기
+		var savedData = JSON.parse(localStorage.getItem("haru"));
+		for(var i = 0 ; i < $('.issue-container').length; i++){
+			var target = $('.issue-container')[i];
+			var key = target.dataset.date;
+			if(savedData[key] == 2){
+//				animation effect
+//				key를 1로 변경
+				savedData[key] = 1;
+			}else if (savedData[key] == 1){
+				target.style.backgroundColor = "rgba(207, 255, 149, 0.6)";
+			}
+		}
+		
+		localStorage.setItem("haru", JSON.stringify(savedData));
 	}
 }
 function setPos(){

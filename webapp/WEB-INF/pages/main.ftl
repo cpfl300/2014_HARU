@@ -21,8 +21,8 @@
 			<div class="list-lists">
 				<img src="http://cdn.wallwuzz.com/uploads/tokyo-wallpaper-photography-city-scape-cityscape-grayscale-styles-cityscapes-wallwuzz-hd-wallpaper-20342.jpeg"/>
 				<#list hotissues as hoissue>
-						<div class="issue-container" data-date="141202">
-							<a href="/article/${hoissue.sequence}"><div class="issue">${hoissue.name}</a></div>
+						<div class="issue-container" data-date=${date}${hoissue.sequence}>
+							<a href="/date/${date}/article/${hoissue.sequence}"><div class="issue">${hoissue.name}</a></div>
 						</div>
 				</#list>
 			</div>
