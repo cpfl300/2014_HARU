@@ -95,21 +95,6 @@ var MoveList = {
 				cancelAnimationFrame(MoveList.id);
 			});
 			
-			this.eventBind();
-		},
-		eventBind: function(){
-			this.target.addEventListener('touchstart', this.touchstart.bind(this));
-			this.target.addEventListener('touchmove', this.touchmove.bind(this));
-			this.target.addEventListener('touchend', this.touchend.bind(this));
-		},
-		touchstart: function(e){
-			e.preventDefault();
-		},
-		touchmove: function(e){
-			e.preventDefault();
-		},
-		touchend: function(e){
-			e.preventDefault();
 		},
 		setBlur: function(){
 			$('.datetime img').css('margin-top', MoveList.fixedMarginTop+'px');
@@ -155,7 +140,6 @@ var LocalStorage = {
 		this.applyList();
 	},
 	applyList: function(){
-//		localStorage 읽어서 UI에 적용하기
 		var savedData = JSON.parse(localStorage.getItem("haru"));
 		for(var i = 0 ; i < $('.issue-container').length; i++){
 			var target = $('.issue-container')[i];

@@ -13,13 +13,13 @@
 		<div class="list-move-container">
 			<div class="list-date-container">
 				<div class="datetime">
-					<img src="http://cdn.wallwuzz.com/uploads/tokyo-wallpaper-photography-city-scape-cityscape-grayscale-styles-cityscapes-wallwuzz-hd-wallpaper-20342.jpeg"/>
+					<img src="http://1.bp.blogspot.com/-_eOqJw1i78U/T-nPui2ankI/AAAAAAAAAkk/vzNLfVgUWw4/s1600/dust-dirt-and-leaves-inkbluesky.png"/>
 					<p class="whiten"></p>
 					<p>2014.11.11</p>
 				</div>
 			</div>
 			<div class="list-lists">
-				<img src="http://cdn.wallwuzz.com/uploads/tokyo-wallpaper-photography-city-scape-cityscape-grayscale-styles-cityscapes-wallwuzz-hd-wallpaper-20342.jpeg"/>
+				<img src="http://1.bp.blogspot.com/-_eOqJw1i78U/T-nPui2ankI/AAAAAAAAAkk/vzNLfVgUWw4/s1600/dust-dirt-and-leaves-inkbluesky.png"/>
 				<#list hotissues as hoissue>
 						<div class="issue-container" data-date=${date}${hoissue.sequence}>
 							<a href="/date/${date}/article/${hoissue.sequence}"><div class="issue">${hoissue.name}</a></div>
@@ -29,6 +29,6 @@
 		</div>
 	</div>
 	<img
-		src="http://cdn.wallwuzz.com/uploads/tokyo-wallpaper-photography-city-scape-cityscape-grayscale-styles-cityscapes-wallwuzz-hd-wallpaper-20342.jpeg" />		
+		src="http://1.bp.blogspot.com/-_eOqJw1i78U/T-nPui2ankI/AAAAAAAAAkk/vzNLfVgUWw4/s1600/dust-dirt-and-leaves-inkbluesky.png" />		
 </body>
 </html>
