@@ -31,7 +31,7 @@ public class MainController {
 		
 //		Date date = ElixirUtils.getNow();
 		Date date = ElixirUtils.getDate(2014, Calendar.NOVEMBER, 28, 6);
-		String dateStr = "14112806";
+		String dateStr = "141206";
 		
 		List<Hotissue> hotissues = hotissueService.getByServiceDate(date);
 		

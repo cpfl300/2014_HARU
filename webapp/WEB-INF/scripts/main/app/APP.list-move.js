@@ -127,7 +127,6 @@ var LocalStorage = {
 		this.init();
 	},
 	init: function(){
-//		console.log("local storage가 없으면 생성.");
 		if(localStorage.getItem("haru") == null){
 			var tmpDic = {};
 			for(var i = 0 ; i < $('.issue-container').length; i++){
@@ -141,16 +140,30 @@ var LocalStorage = {
 	},
 	applyList: function(){
 		var savedData = JSON.parse(localStorage.getItem("haru"));
+		var containKeys = [];
 		for(var i = 0 ; i < $('.issue-container').length; i++){
 			var target = $('.issue-container')[i];
 			var key = target.dataset.date;
-			if(savedData[key] == 2){
+			containKeys.push(key);
+			if(typeof savedData[key] == 'undefined'){
+				savedData[key] = 0;
+			}else if(savedData[key] == 2){
 //				animation effect
 //				key를 1로 변경
 				savedData[key] = 1;
 			}else if (savedData[key] == 1){
 				target.style.backgroundColor = "rgba(207, 255, 149, 0.6)";
 			}
+		}
+		
+//		localStorage에서 지워야할 것 들의 key들을 찾아 냄
+		var allKesy = Object.keys(savedData);
+		var deleteKeys = allKesy.filter(function(el){
+			return containKeys.indexOf( el ) < 0;
+		});
+		
+		for(var i = 0; i < deleteKeys.length; i++){
+			delete savedData[deleteKeys[i]];
 		}
 		
 		localStorage.setItem("haru", JSON.stringify(savedData));
