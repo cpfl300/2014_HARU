@@ -1,5 +1,9 @@
-window.addEventListener('load', list_move_init);
+$(window).bind( 'pageshow', function( event ){
+	list_move_init();
+});
+
 document.addEventListener('DOMContentLoaded', setPos);
+
 function list_move_init(){
 	MoveList.init($('.list-move-container'));
 	LocalStorage.run();
@@ -169,6 +173,7 @@ var LocalStorage = {
 		localStorage.setItem("haru", JSON.stringify(savedData));
 	}
 }
+
 function setPos(){
 	var datetimeContainerSize = $(window).height()*0.6;
 	MoveList.datetimeContainerSize = datetimeContainerSize;
@@ -181,3 +186,4 @@ function setPos(){
 	$('.list-lists img')[0].style.marginTop = -datetimeContainerSize +'px';
 	MoveList.listImgMargin = -datetimeContainerSize;
 }
+
