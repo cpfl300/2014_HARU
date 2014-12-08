@@ -1,5 +1,8 @@
 //window.addEventListener('load', list_move_init);
-$(window).on('pageshow', list_move_init);
+$(window).bind('pageshow', list_move_init);
+$(window).bind('onbeforeunload', function(){
+	localStorage.removeItem('pos');
+})
 document.addEventListener('DOMContentLoaded', setPos);
 
 function list_move_init(){
