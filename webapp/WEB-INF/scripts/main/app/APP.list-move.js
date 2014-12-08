@@ -190,6 +190,10 @@ var LocalStorage = {
 		
 		myScroll.y = pos;
 		$('.list-move-container').css('transform','matrix(1, 0, 0, 1, 0, '+pos+')');
+		
+		MoveList.setDatetime(myScroll.y);
+		$('.datetime').css('opacity', MoveList.datetimeOpacity);
+		
 	},
 	setCurPos: function(){
 		var matrixData = $('.list-move-container').css('transform').split(",");
