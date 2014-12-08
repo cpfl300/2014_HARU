@@ -28,13 +28,7 @@ var MoveList = {
 				
 				MoveList.fixedListMarginTop = -this.y + MoveList.listImgMargin;
 				
-				if(this.y >= 0){
-					MoveList.datetimeOpacity = 1;
-				}else if(this.y < -65){
-					MoveList.datetimeOpacity = 0;
-				}else{
-					MoveList.datetimeOpacity = 1-Math.abs(this.y)/65;
-				}
+				MoveList.setDatetime(this.y);
 				
 				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
 					MoveList.headerOpacity = 0;
@@ -53,13 +47,14 @@ var MoveList = {
 				
 				MoveList.fixedListMarginTop = -this.y + MoveList.listImgMargin;
 				
-				if(this.y >= 0){
-					MoveList.datetimeOpacity = 1;
-				}else if(this.y < -65){
-					MoveList.datetimeOpacity = 0;
-				}else{
-					MoveList.datetimeOpacity = 1-Math.abs(this.y)/65;
-				}
+//				if(this.y >= 0){
+//					MoveList.datetimeOpacity = 1;
+//				}else if(this.y < -65){
+//					MoveList.datetimeOpacity = 0;
+//				}else{
+//					MoveList.datetimeOpacity = 1-Math.abs(this.y)/65;
+//				}
+				MoveList.setDatetime(this.y);
 				
 				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
 					MoveList.headerOpacity = 0;
@@ -78,13 +73,14 @@ var MoveList = {
 				
 				MoveList.fixedListMarginTop = -this.y + MoveList.listImgMargin;
 				
-				if(this.y >= 0){
-					MoveList.datetimeOpacity = 1;
-				}else if(this.y < -65){
-					MoveList.datetimeOpacity = 0;
-				}else{
-					MoveList.datetimeOpacity = 1-Math.abs(this.y)/65;
-				}
+//				if(this.y >= 0){
+//					MoveList.datetimeOpacity = 1;
+//				}else if(this.y < -65){
+//					MoveList.datetimeOpacity = 0;
+//				}else{
+//					MoveList.datetimeOpacity = 1-Math.abs(this.y)/65;
+//				}
+				MoveList.setDatetime(this.y);
 				
 				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
 					MoveList.headerOpacity = 0;
@@ -122,6 +118,15 @@ var MoveList = {
 			}
 			if(curTop > 0){
 				$('.list-move-container')[0].style.top = '0px';
+			}
+		},
+		setDatetime: function(yPos){
+			if(yPos >= 0){
+				MoveList.datetimeOpacity = 1;
+			}else if(yPos < -65){
+				MoveList.datetimeOpacity = 0;
+			}else{
+				MoveList.datetimeOpacity = 1-Math.abs(yPos)/65;
 			}
 		}
 };
