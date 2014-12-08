@@ -1,7 +1,5 @@
-$(window).bind( 'pageshow', function( event ){
-	list_move_init();
-});
-
+//window.addEventListener('load', list_move_init);
+$(window).on('pageshow', list_move_init);
 document.addEventListener('DOMContentLoaded', setPos);
 
 function list_move_init(){
@@ -122,13 +120,15 @@ var MoveList = {
 			if(curTop > 0){
 				$('.list-move-container')[0].style.top = '0px';
 			}
-		},
+		}
 };
 
 
 var LocalStorage = {
 	run: function(){
 		this.init();
+		this.setScrollPos();
+		$('a').bind('click', this.setCurPos.bind(this));
 	},
 	init: function(){
 		if(localStorage.getItem("haru") == null){
@@ -171,10 +171,26 @@ var LocalStorage = {
 		}
 		
 		localStorage.setItem("haru", JSON.stringify(savedData));
+	},
+	setScrollPos: function(){
+		var pos = localStorage.getItem('pos');
+		if(pos == null){
+			pos = 0;
+		}else{
+			pos = parseInt(pos);
+		}
+		
+		myScroll.y = pos;
+		$('.list-move-container').css('transform','matrix(1, 0, 0, 1, 0, '+pos+')');
+	},
+	setCurPos: function(){
+		var matrixData = $('.list-move-container').css('transform').split(",");
+		var curPos = parseInt(matrixData[matrixData.length-1]);
+		localStorage.setItem('pos', curPos);
 	}
 }
 
-function setPos(){
+function setPos(fm){
 	var datetimeContainerSize = $(window).height()*0.6;
 	MoveList.datetimeContainerSize = datetimeContainerSize;
 	var datetimeHeight = 80;

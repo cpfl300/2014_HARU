@@ -329,7 +329,6 @@ function IScroll (el, options) {
 
 	this._init();
 	this.refresh();
-
 	this.scrollTo(this.options.startX, this.options.startY);
 	this.enable();
 }
@@ -511,7 +510,6 @@ IScroll.prototype = {
 		}
 
 		this.moved = true;
-
 		this._translate(newX, newY);
 
 /* REPLACE START: _move */
@@ -842,7 +840,7 @@ IScroll.prototype = {
 		if ( this.options.useTransform ) {
 
 /* REPLACE START: _translate */
-
+			
 			this.scrollerStyle[utils.style.transform] = 'translate(' + x + 'px,' + y + 'px)' + this.translateZ;
 
 /* REPLACE END: _translate */
