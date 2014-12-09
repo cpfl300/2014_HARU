@@ -1,7 +1,8 @@
 //window.addEventListener('load', list_move_init);
 $(window).bind('pageshow', list_move_init);
 $(window).bind('onbeforeunload', function(){
-	localStorage.removeItem('pos');
+	localStorage.setItem('pos', 0);
+	return "end?";
 })
 document.addEventListener('DOMContentLoaded', setPos);
 
@@ -24,66 +25,23 @@ var MoveList = {
 			
 			myScroll.on('scrollStart', function(){
 				MoveList.id = requestAnimationFrame(MoveList.setBlur);
-				MoveList.fixedMarginTop = -this.y + MoveList.firstMargin;
-				
-				MoveList.fixedListMarginTop = -this.y + MoveList.listImgMargin;
+				MoveList.setImgMargin(this.y);
 				
 				MoveList.setDatetime(this.y);
-				
 				MoveList.setHeader(this.y);
 			});
 			
 			myScroll.on('scroll', function(){
-				MoveList.fixedMarginTop = -this.y + MoveList.firstMargin;
+				MoveList.setImgMargin(this.y);
 				
-				MoveList.fixedListMarginTop = -this.y + MoveList.listImgMargin;
-				
-//				if(this.y >= 0){
-//					MoveList.datetimeOpacity = 1;
-//				}else if(this.y < -65){
-//					MoveList.datetimeOpacity = 0;
-//				}else{
-//					MoveList.datetimeOpacity = 1-Math.abs(this.y)/65;
-//				}
 				MoveList.setDatetime(this.y);
-				
-//				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
-//					MoveList.headerOpacity = 0;
-//					MoveList.headerColor = 255;
-//				}else if(this.y <= -(MoveList.datetimeContainerSize - 44)){
-//					MoveList.headerOpacity = 1;
-//					MoveList.headerColor = 0;
-//				}else{
-//					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65;
-//					MoveList.headerColor = parseInt(255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255);
-//				}
 				MoveList.setHeader(this.y);
 			});
 			
 			myScroll.on('scrollEnd', function(){
-				MoveList.fixedMarginTop = -this.y + MoveList.firstMargin;
+				MoveList.setImgMargin(this.y);
 				
-				MoveList.fixedListMarginTop = -this.y + MoveList.listImgMargin;
-				
-//				if(this.y >= 0){
-//					MoveList.datetimeOpacity = 1;
-//				}else if(this.y < -65){
-//					MoveList.datetimeOpacity = 0;
-//				}else{
-//					MoveList.datetimeOpacity = 1-Math.abs(this.y)/65;
-//				}
 				MoveList.setDatetime(this.y);
-				
-//				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
-//					MoveList.headerOpacity = 0;
-//					MoveList.headerColor = 255;
-//				}else if(this.y <= -(MoveList.datetimeContainerSize - 44)){
-//					MoveList.headerOpacity = 1;
-//					MoveList.headerColor = 0;
-//				}else{
-//					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65;
-//					MoveList.headerColor = parseInt(255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255);
-//				}
 				MoveList.setHeader(this.y);
 				
 				cancelAnimationFrame(MoveList.id);
@@ -133,6 +91,10 @@ var MoveList = {
 				MoveList.headerOpacity = (Math.abs(yPos)-(MoveList.datetimeContainerSize - 44 - 65))/65;
 				MoveList.headerColor = parseInt(255-((Math.abs(yPos)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255);
 			}
+		},
+		setImgMargin: function(yPos){
+			MoveList.fixedMarginTop = -yPos + MoveList.firstMargin;
+			MoveList.fixedListMarginTop = -yPos + MoveList.listImgMargin;
 		}
 };
 
@@ -196,14 +158,11 @@ var LocalStorage = {
 		myScroll.y = pos;
 		$('.list-move-container').css('transform','matrix(1, 0, 0, 1, 0, '+pos+')');
 		
-		MoveList.setDatetime(myScroll.y);
-		$('.datetime').css('opacity', MoveList.datetimeOpacity);
+		MoveList.setDatetime(pos);
+		MoveList.setHeader(pos);
+		MoveList.setImgMargin(pos);
 		
-		MoveList.setHeader(myScroll.y);
-		$('#header').css('background-color', 'rgba(255, 255, 255, '+MoveList.headerOpacity+')');
-		$('.header-logo span').css('color', 'rgb('+MoveList.headerColor+', '+MoveList.headerColor+', '+MoveList.headerColor+')');
-		//헤더 관련 DO
-		
+		MoveList.setBlur();
 	},
 	setCurPos: function(){
 		var matrixData = $('.list-move-container').css('transform').split(",");
