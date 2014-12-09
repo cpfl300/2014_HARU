@@ -1,13 +1,10 @@
-//window.addEventListener('load', list_move_init);
 $(window).bind('pageshow', list_move_init);
-//$(window).bind('beforeunload', function(){
-//	localStorage.setItem('pos', 0);
-//});
 document.addEventListener('DOMContentLoaded', setPos);
 
 function list_move_init(){
 	MoveList.init($('.list-move-container'));
 	LocalStorage.run();
+	Timer.init();
 }
 
 var MoveList = {
@@ -141,8 +138,6 @@ var LocalStorage = {
 						copy.parentNode.removeChild(copy);
 					}, false);
 				}, 500);
-				
-				
 //				key를 1로 변경
 				savedData[key] = 1;
 			}else if (savedData[key] == 1){
@@ -150,7 +145,6 @@ var LocalStorage = {
 			}
 		}
 		
-//		localStorage에서 지워야할 것 들의 key들을 찾아 냄
 		var allKesy = Object.keys(savedData);
 		var deleteKeys = allKesy.filter(function(el){
 			return containKeys.indexOf( el ) < 0;
@@ -185,6 +179,44 @@ var LocalStorage = {
 		localStorage.setItem('pos', curPos);
 	}
 }
+
+
+var Timer = {
+	init: function(){
+		$('.datetime').bind('click', this.controlTimer.bind(this));
+	},
+	controlTimer: function(){
+		var time = this.getRemainTime();
+		this.saveTimes(time);
+	},
+	getRemainTime: function(){
+		var curDT = new Date();
+		var nextDT = new Date(curDT);
+		nextDT.setMinutes(0);
+		nextDT.setSeconds(0);
+		if(6<= curDT.getHours() && curDT.getHours() <18){
+			console.log("다음은 오후");
+			nextDT.setHours(18);
+		} else{
+			console.log("다음은 오전");
+			nextDT.setDate(curDT.getDate()+1);
+			nextDT.setHours(6);
+		}
+		
+		return (nextDT - curDT)/1000;
+	},
+	saveTimes: function(time){
+		this.sec = time%60;
+		time -= this.sec;
+		time /= 60;
+		
+		this.min = time%60;
+		time -= this.min;
+		time /= 60;
+		
+		this.hour = time;
+	}
+};
 
 function setPos(fm){
 	var datetimeContainerSize = $(window).height()*0.6;
