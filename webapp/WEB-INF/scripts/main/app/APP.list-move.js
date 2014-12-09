@@ -128,6 +128,12 @@ var LocalStorage = {
 				savedData[key] = 0;
 			}else if(savedData[key] == 2){
 //				animation effect
+				var copy = target.cloneNode();
+				copy.className = "animation-temp-div";
+				var divWidth = $(window).width() + 65;
+				copy.style.cssText = "left:"+(-divWidth)+"px; width:" +divWidth+"px;";
+				target.insertAdjacentElement('beforebegin', copy);
+				
 //				key를 1로 변경
 				savedData[key] = 1;
 			}else if (savedData[key] == 1){
