@@ -136,6 +136,10 @@ var LocalStorage = {
 				
 				setTimeout(function(){
 					copy.style.left = "0px";
+					copy.addEventListener("transitionend", function(){
+						copy.nextElementSibling.style.backgroundColor = "rgba(207, 255, 149, 0.6)";
+						copy.parentNode.removeChild(copy);
+					}, false);
 				}, 500);
 				
 				
