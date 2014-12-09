@@ -30,16 +30,7 @@ var MoveList = {
 				
 				MoveList.setDatetime(this.y);
 				
-				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
-					MoveList.headerOpacity = 0;
-					MoveList.headerColor = 255;
-				}else if(this.y <= -(MoveList.datetimeContainerSize - 44)){
-					MoveList.headerOpacity = 1;
-					MoveList.headerColor = 0;
-				}else{
-					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65;
-					MoveList.headerColor = parseInt(255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255);
-				}
+				MoveList.setHeader(this.y);
 			});
 			
 			myScroll.on('scroll', function(){
@@ -56,16 +47,17 @@ var MoveList = {
 //				}
 				MoveList.setDatetime(this.y);
 				
-				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
-					MoveList.headerOpacity = 0;
-					MoveList.headerColor = 255;
-				}else if(this.y <= -(MoveList.datetimeContainerSize - 44)){
-					MoveList.headerOpacity = 1;
-					MoveList.headerColor = 0;
-				}else{
-					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65;
-					MoveList.headerColor = parseInt(255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255);
-				}
+//				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
+//					MoveList.headerOpacity = 0;
+//					MoveList.headerColor = 255;
+//				}else if(this.y <= -(MoveList.datetimeContainerSize - 44)){
+//					MoveList.headerOpacity = 1;
+//					MoveList.headerColor = 0;
+//				}else{
+//					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65;
+//					MoveList.headerColor = parseInt(255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255);
+//				}
+				MoveList.setHeader(this.y);
 			});
 			
 			myScroll.on('scrollEnd', function(){
@@ -82,16 +74,17 @@ var MoveList = {
 //				}
 				MoveList.setDatetime(this.y);
 				
-				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
-					MoveList.headerOpacity = 0;
-					MoveList.headerColor = 255;
-				}else if(this.y <= -(MoveList.datetimeContainerSize - 44)){
-					MoveList.headerOpacity = 1;
-					MoveList.headerColor = 0;
-				}else{
-					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65;
-					MoveList.headerColor = parseInt(255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255);
-				}
+//				if(this.y > -(MoveList.datetimeContainerSize - 44 - 65)){
+//					MoveList.headerOpacity = 0;
+//					MoveList.headerColor = 255;
+//				}else if(this.y <= -(MoveList.datetimeContainerSize - 44)){
+//					MoveList.headerOpacity = 1;
+//					MoveList.headerColor = 0;
+//				}else{
+//					MoveList.headerOpacity = (Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65;
+//					MoveList.headerColor = parseInt(255-((Math.abs(this.y)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255);
+//				}
+				MoveList.setHeader(this.y);
 				
 				cancelAnimationFrame(MoveList.id);
 			});
@@ -127,6 +120,18 @@ var MoveList = {
 				MoveList.datetimeOpacity = 0;
 			}else{
 				MoveList.datetimeOpacity = 1-Math.abs(yPos)/65;
+			}
+		},
+		setHeader: function(yPos){
+			if(yPos > -(MoveList.datetimeContainerSize - 44 - 65)){
+				MoveList.headerOpacity = 0;
+				MoveList.headerColor = 255;
+			}else if(yPos <= -(MoveList.datetimeContainerSize - 44)){
+				MoveList.headerOpacity = 1;
+				MoveList.headerColor = 0;
+			}else{
+				MoveList.headerOpacity = (Math.abs(yPos)-(MoveList.datetimeContainerSize - 44 - 65))/65;
+				MoveList.headerColor = parseInt(255-((Math.abs(yPos)-(MoveList.datetimeContainerSize - 44 - 65))/65)*255);
 			}
 		}
 };
@@ -193,6 +198,11 @@ var LocalStorage = {
 		
 		MoveList.setDatetime(myScroll.y);
 		$('.datetime').css('opacity', MoveList.datetimeOpacity);
+		
+		MoveList.setHeader(myScroll.y);
+		$('#header').css('background-color', 'rgba(255, 255, 255, '+MoveList.headerOpacity+')');
+		$('.header-logo span').css('color', 'rgb('+MoveList.headerColor+', '+MoveList.headerColor+', '+MoveList.headerColor+')');
+		//헤더 관련 DO
 		
 	},
 	setCurPos: function(){
