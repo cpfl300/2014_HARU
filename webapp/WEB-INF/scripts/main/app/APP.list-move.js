@@ -1,9 +1,8 @@
 //window.addEventListener('load', list_move_init);
 $(window).bind('pageshow', list_move_init);
-$(window).bind('onbeforeunload', function(){
-	localStorage.setItem('pos', 0);
-	return "end?";
-})
+//$(window).bind('beforeunload', function(){
+//	localStorage.setItem('pos', 0);
+//});
 document.addEventListener('DOMContentLoaded', setPos);
 
 function list_move_init(){
@@ -107,6 +106,7 @@ var LocalStorage = {
 	},
 	init: function(){
 		if(localStorage.getItem("haru") == null){
+			localStorage.setItem('pos', 0);
 			var tmpDic = {};
 			for(var i = 0 ; i < $('.issue-container').length; i++){
 				var key = $('.issue-container')[i].dataset.date;
