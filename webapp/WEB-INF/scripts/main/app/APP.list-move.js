@@ -127,12 +127,17 @@ var LocalStorage = {
 			if(typeof savedData[key] == 'undefined'){
 				savedData[key] = 0;
 			}else if(savedData[key] == 2){
-//				animation effect
+//				애니메이션 div를 화면에 그려놓음
 				var copy = target.cloneNode();
 				copy.className = "animation-temp-div";
 				var divWidth = $(window).width() + 65;
 				copy.style.cssText = "left:"+(-divWidth)+"px; width:" +divWidth+"px;";
 				target.insertAdjacentElement('beforebegin', copy);
+				
+				setTimeout(function(){
+					copy.style.left = "0px";
+				}, 500);
+				
 				
 //				key를 1로 변경
 				savedData[key] = 1;
