@@ -186,7 +186,10 @@ var Timer = {
 		var date = new Date();
 		this.today = date.getFullYear()+"."+(date.getMonth()+1)+"."+date.getDate();
 		$('.datetime p:last-child')[0].textContent = this.today;
-		$('.datetime').bind('click', this.controlTimer.bind(this));
+		$('.datetime').bind('click', function(e){
+			if(e.target.textContent != this.today) return;
+			this.controlTimer();
+		}.bind(this));
 	},
 	controlTimer: function(){
 		var time = this.getRemainTime();
