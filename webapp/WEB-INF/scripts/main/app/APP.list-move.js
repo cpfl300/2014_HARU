@@ -223,7 +223,19 @@ var Timer = {
 			$('.datetime p:last-child')[0].textContent = this.today;
 			return;
 		}
-		var timer = this.hour+":"+this.min+":"+this.sec;
+		var hour = this.hour;
+		var min = this.min;
+		var sec = this.sec;
+		if(hour < 10){
+			hour = "0" + hour;
+		}
+		if(min < 10){
+			min = "0" + min;
+		}
+		if(sec < 10){
+			sec = "0" + sec;
+		}
+		var timer = hour+":"+min+":"+sec;
 		$('.datetime p:last-child')[0].textContent = timer;
 		this.reduceSec();
 		num--;
