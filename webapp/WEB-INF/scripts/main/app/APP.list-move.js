@@ -191,6 +191,7 @@ var Timer = {
 	controlTimer: function(){
 		var time = this.getRemainTime();
 		this.saveTimes(time);
+		setTimeout(this.drawClock.bind(this,5), 10);
 	},
 	getRemainTime: function(){
 		var curDT = new Date();
@@ -198,10 +199,8 @@ var Timer = {
 		nextDT.setMinutes(0);
 		nextDT.setSeconds(0);
 		if(6<= curDT.getHours() && curDT.getHours() <18){
-			console.log("다음은 오후");
 			nextDT.setHours(18);
 		} else{
-			console.log("다음은 오전");
 			nextDT.setDate(curDT.getDate()+1);
 			nextDT.setHours(6);
 		}
@@ -218,6 +217,21 @@ var Timer = {
 		time /= 60;
 		
 		this.hour = time;
+	},
+	drawClock: function(num){
+		if(num == 0) {
+			$('.datetime p:last-child')[0].textContent = this.today;
+			return;
+		}
+		var timer = this.hour+":"+this.min+":"+this.sec;
+		$('.datetime p:last-child')[0].textContent = timer;
+		this.reduceSec();
+		num--;
+		setTimeout(this.drawClock.bind(this, num), 1000);
+	},
+	reduceSec: function(){
+		var time = this.hour*3600 + this.min*60 + this.sec -1;
+		this.saveTimes(time);
 	}
 };
 
