@@ -183,6 +183,9 @@ var LocalStorage = {
 
 var Timer = {
 	init: function(){
+		var date = new Date();
+		this.today = date.getFullYear()+"."+(date.getMonth()+1)+"."+date.getDate();
+		$('.datetime p:last-child')[0].textContent = this.today;
 		$('.datetime').bind('click', this.controlTimer.bind(this));
 	},
 	controlTimer: function(){

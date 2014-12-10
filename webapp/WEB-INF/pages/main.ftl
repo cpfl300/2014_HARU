@@ -15,7 +15,7 @@
 				<div class="datetime">
 					<img src="http://1.bp.blogspot.com/-_eOqJw1i78U/T-nPui2ankI/AAAAAAAAAkk/vzNLfVgUWw4/s1600/dust-dirt-and-leaves-inkbluesky.png"/>
 					<p class="whiten"></p>
-					<p>2014.11.11</p>
+					<p>날짜</p>
 				</div>
 			</div>
 			<div class="list-lists">
