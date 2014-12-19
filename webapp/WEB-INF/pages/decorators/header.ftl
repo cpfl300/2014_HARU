@@ -17,7 +17,10 @@
 		<sitemesh:write property='body' />
 	</div>
 	
-	<script type="text/javascript" src="/scripts/main/app/APP.header.js"></script>
+	
+	<#if Application.debugger == "on">
+		<script type="text/javascript" src="/scripts/main/app/APP.header.js"></script>
+	</#if>
 	<script>
 		window.addEventListener("DOMContentLoaded", function(evt){
 			APP.header.init();

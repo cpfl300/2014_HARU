@@ -1,19 +1,28 @@
 
-window.addEventListener('DOMContentLoaded', flickInit);
+window.addEventListener('DOMContentLoaded', init);
 
-function flickInit(){
-	var container = document.querySelector('#container');
-	Flick.flicking(container, 80, toggleClass.bind(this, "article-container", "flipped"), null);
-	
+function init(){
+	ScrollCheck.init();
 }
 
-//flicking 인식모듈 test 
-//function changeLeftPos(ele, movePos){
-//	var curPos = parseInt(ele.style.left);
-//	if(isNaN(curPos)) curPos = 0;
-//	ele.style.left = (curPos + movePos) + "px";
-//}
+var ScrollCheck = {
+	init: function(){
+		this.maxScrollPos = ($(document).height() - $(window).height()) - 150;
+		this.eventBind();
+	},
+	eventBind: function(){
+		$('body')[0].addEventListener('touchmove', this.checkScrollPos.bind(this));
+		$('body')[0].addEventListener('touchend', this.checkScrollPos.bind(this));
+	},
+	checkScrollPos: function(){
+		if($(document).scrollTop() >= this.maxScrollPos){
+			var localData = JSON.parse(localStorage.getItem('haru'));
 
-function toggleClass(className, toggleClass){
-	$('.'+className).toggleClass(toggleClass);
-}
+			var Akey = document.URL.split("date/")[1].split("/article/");
+			var key = Akey.toString().replace(',', '');
+			localData[key] = 2;
+			
+			localStorage.setItem('haru', JSON.stringify(localData));
+		}
+	}
+};

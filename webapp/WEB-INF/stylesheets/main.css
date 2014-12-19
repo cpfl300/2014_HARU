@@ -79,6 +79,14 @@
 	z-index: 15;
 }
 
+.animation-temp-div{
+	position: absolute;
+	transition: 2s cubic-bezier(0.1, 0.57, 0.1, 1);
+	background-color: transparent;
+	border-bottom: 65px solid rgba(76, 189, 0, 0.6);
+	border-right: 65px solid transparent;
+}
+
 /** layout **/
 #container {
 	position: fixed;

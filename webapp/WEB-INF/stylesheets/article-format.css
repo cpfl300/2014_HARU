@@ -90,6 +90,7 @@ hr{
 	position: absolute;
 	bottom: 0;
 	overflow: hidden;
+	width: 100%;
 }
 
 .blur-img{
