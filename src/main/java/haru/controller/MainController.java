@@ -1,5 +1,10 @@
 package haru.controller;
 
+import haru.library.imageUtil.Image;
+import haru.library.imageUtil.ImageLoader;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -29,6 +34,19 @@ public class MainController {
 		
 //		String imageUrl = "/images/test/main_issue.jpg";
 		String imageUrl = "http://1.bp.blogspot.com/-_eOqJw1i78U/T-nPui2ankI/AAAAAAAAAkk/vzNLfVgUWw4/s1600/dust-dirt-and-leaves-inkbluesky.png";
+
+		//		이미지 라이브러리 적용 파트
+		Image cropped = null;
+		File f = new File("cropped.jpg");
+		try {
+			Image img = ImageLoader.fromUrl(imageUrl);
+			img.getResizedToWidth(400).soften(0.3f).writeToJPG(f, 0.95f);
+			System.out.println(f.getAbsolutePath());
+//            cropped.writeToFile(new File("./static/images/cropped.jpg"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		
 //		Date date = ElixirUtils.getNow();
 		Date date = ElixirUtils.getDate(2014, Calendar.NOVEMBER, 28, 6);
@@ -38,6 +56,7 @@ public class MainController {
 		
 		model.addAttribute("hotissues", hotissues);
 		model.addAttribute("imageUrl", imageUrl);
+//		model.addAttribute("cropped", f.getAbsolutePath());
 		model.addAttribute("date", dateStr);
 		
 		return "main";
