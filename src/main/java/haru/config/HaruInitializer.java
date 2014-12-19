@@ -23,6 +23,8 @@ public class HaruInitializer implements WebApplicationInitializer {
 	private static final String ALL = "/*";
 	private static final String ROOT = "/";
 	private static final String HARU = "haru";
+	private static final String UTF8 = "UTF-8";
+	private static final String TRUE = "true";
 
 	@Override
 	public void onStartup(ServletContext container) {
@@ -48,8 +50,8 @@ public class HaruInitializer implements WebApplicationInitializer {
 			.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD), false, ALL);
 		
 		FilterRegistration charEncodingfilterReg = container.addFilter("CharacterEncodingFilter", CharacterEncodingFilter.class);
-		charEncodingfilterReg.setInitParameter("encoding", "UTF-8");
-		charEncodingfilterReg.setInitParameter("forceEncoding", "true");
+		charEncodingfilterReg.setInitParameter("encoding", UTF8);
+		charEncodingfilterReg.setInitParameter("forceEncoding", TRUE);
 		charEncodingfilterReg.addMappingForUrlPatterns(null, false, ALL);
 		
 		
