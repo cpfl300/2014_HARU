@@ -56,7 +56,7 @@ public class HaruInitializer implements WebApplicationInitializer {
 		
 		
 		// context param
-		container.setAttribute("debugger", OFF);
+		container.setAttribute("debugger", ON);
 	}
 
 }

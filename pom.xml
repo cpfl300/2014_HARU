@@ -239,7 +239,7 @@
 							
 							<jsFinalFile>MAYFLAY.js</jsFinalFile>
 							<jsEngine>CLOSURE</jsEngine>
-							<closureCompilationLevel>SIMPLE_OPTIMIZATIONS</closureCompilationLevel>
+							<closureCompilationLevel>WHITESPACE_ONLY</closureCompilationLevel>
 		                    <yuiPreserveAllSemiColons>true</yuiPreserveAllSemiColons>
 							<webappTargetDir>${dir.scripts}/min</webappTargetDir>
 						</configuration>
@@ -257,13 +257,13 @@
 							<webappSourceDir>${dir.scripts}/main</webappSourceDir>							
 							<jsSourceDir>cage</jsSourceDir>
 							<jsSourceFiles>
-								<jsSourceFile>CAGE.iscroll-prob.js</jsSourceFile>
 								<jsSourceFile>CAGE.ajax.js</jsSourceFile>
+								<jsSourceFile>CAGE.iscroll-prob.js</jsSourceFile>
 							</jsSourceFiles>
 								
 							<jsFinalFile>CAGE.js</jsFinalFile>
 							<jsEngine>CLOSURE</jsEngine>
-							<closureCompilationLevel>SIMPLE_OPTIMIZATIONS</closureCompilationLevel>
+							<closureCompilationLevel>WHITESPACE_ONLY</closureCompilationLevel>
 		                    <yuiPreserveAllSemiColons>true</yuiPreserveAllSemiColons>
 							<webappTargetDir>${dir.scripts}/min</webappTargetDir>
 						</configuration>
@@ -282,14 +282,14 @@
 								
 							<jsSourceDir>app</jsSourceDir>
 							<jsSourceFiles>
-								<jsSourceFile>APP.article.js</jsSourceFile>
-								<jsSourceFile>APP.header.js</jsSourceFile>
 								<jsSourceFile>APP.list-move.js</jsSourceFile>
+								<jsSourceFile>APP.header.js</jsSourceFile>
+								<jsSourceFile>APP.article.js</jsSourceFile>
 							</jsSourceFiles>
 							
 							<jsFinalFile>APP.js</jsFinalFile>
 							<jsEngine>CLOSURE</jsEngine>
-							<closureCompilationLevel>SIMPLE_OPTIMIZATIONS</closureCompilationLevel>
+							<closureCompilationLevel>WHITESPACE_ONLY</closureCompilationLevel>
 		                    <yuiPreserveAllSemiColons>true</yuiPreserveAllSemiColons>
 							<webappTargetDir>${dir.scripts}/min</webappTargetDir>
 						</configuration>
