@@ -64,7 +64,7 @@
 		
 		success = config.success,
 		failure = config.failure,
-		progress = config.progress,
+		progress = config.progress;
 		
 		// create request
 		var request = _createRequest();

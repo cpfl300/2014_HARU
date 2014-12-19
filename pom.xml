@@ -39,6 +39,9 @@
 		<plugin.maven.eclipse.version>2.9</plugin.maven.eclipse.version>
 		<plugin.maven.compiler.version>3.1</plugin.maven.compiler.version>
 		<plugin.maven.javadoc.version>2.10.1</plugin.maven.javadoc.version>
+		<plugin.maven.minify.version>1.7.2</plugin.maven.minify.version>
+		
+		<dir.scripts>${basedir}/webapp/WEB-INF/scripts</dir.scripts>
 	</properties>
 	
 	<dependencies>
@@ -213,6 +216,88 @@
 			    <groupId>org.apache.maven.plugins</groupId>
 			    <artifactId>maven-javadoc-plugin</artifactId>
 			    <version>${plugin.maven.javadoc.version}</version>
+			</plugin>
+			
+			<!-- js-minifier -->
+			<plugin>
+				<groupId>com.samaxes.maven</groupId>
+				<artifactId>minify-maven-plugin</artifactId>
+				<version>${plugin.maven.minify.version}</version>
+				<executions>
+					<!-- mayfly -->
+					<execution>
+						<id>MAYFLY-minify</id>
+						<phase>generate-resources</phase>
+						<configuration>
+							<charset>${project.build.sourceEncoding}</charset>
+							<webappSourceDir>${dir.scripts}/main</webappSourceDir>
+								
+							<jsSourceDir>mayfly</jsSourceDir>
+							<jsSourceFiles>					
+								<jsSourceFile>MAYFLY.flicking.js</jsSourceFile>
+							</jsSourceFiles>
+							
+							<jsFinalFile>MAYFLAY.js</jsFinalFile>
+							<jsEngine>CLOSURE</jsEngine>
+							<closureCompilationLevel>SIMPLE_OPTIMIZATIONS</closureCompilationLevel>
+		                    <yuiPreserveAllSemiColons>true</yuiPreserveAllSemiColons>
+							<webappTargetDir>${dir.scripts}/min</webappTargetDir>
+						</configuration>
+						<goals>
+							<goal>minify</goal>
+						</goals>
+					</execution>
+					
+					<!-- cage -->
+					<execution>
+						<id>CAGE-minify</id>
+						<phase>generate-resources</phase>
+						<configuration>
+							<charset>${project.build.sourceEncoding}</charset>
+							<webappSourceDir>${dir.scripts}/main</webappSourceDir>							
+							<jsSourceDir>cage</jsSourceDir>
+							<jsSourceFiles>
+								<jsSourceFile>CAGE.iscroll-prob.js</jsSourceFile>
+								<jsSourceFile>CAGE.ajax.js</jsSourceFile>
+							</jsSourceFiles>
+								
+							<jsFinalFile>CAGE.js</jsFinalFile>
+							<jsEngine>CLOSURE</jsEngine>
+							<closureCompilationLevel>SIMPLE_OPTIMIZATIONS</closureCompilationLevel>
+		                    <yuiPreserveAllSemiColons>true</yuiPreserveAllSemiColons>
+							<webappTargetDir>${dir.scripts}/min</webappTargetDir>
+						</configuration>
+						<goals>
+							<goal>minify</goal>
+						</goals>
+					</execution>
+					
+					<!-- app -->
+					<execution>
+						<id>APP-minify</id>
+						<phase>generate-resources</phase>
+						<configuration>
+							<charset>${project.build.sourceEncoding}</charset>
+							<webappSourceDir>${dir.scripts}/main</webappSourceDir>
+								
+							<jsSourceDir>app</jsSourceDir>
+							<jsSourceFiles>
+								<jsSourceFile>APP.article.js</jsSourceFile>
+								<jsSourceFile>APP.header.js</jsSourceFile>
+								<jsSourceFile>APP.list-move.js</jsSourceFile>
+							</jsSourceFiles>
+							
+							<jsFinalFile>APP.js</jsFinalFile>
+							<jsEngine>CLOSURE</jsEngine>
+							<closureCompilationLevel>SIMPLE_OPTIMIZATIONS</closureCompilationLevel>
+		                    <yuiPreserveAllSemiColons>true</yuiPreserveAllSemiColons>
+							<webappTargetDir>${dir.scripts}/min</webappTargetDir>
+						</configuration>
+						<goals>
+							<goal>minify</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

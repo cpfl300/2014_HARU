@@ -6,9 +6,12 @@
 	
 	<link rel="stylesheet" type="text/css" href="/stylesheets/article-format.css">
 	
-	<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script type="text/javascript" src="/scripts/main/app/APP.article.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<#if Application.debugger == "off">
+		<script type="text/javascript" src="/scripts/min/app/APP.min.js"></script>
+	<#elseif Application.debugger == "on">
+		<script type="text/javascript" src="/scripts/main/app/APP.article.js"></script>
+	</#if>
 </head>
 
 <body>
