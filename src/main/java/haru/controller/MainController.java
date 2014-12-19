@@ -27,7 +27,8 @@ public class MainController {
 	@RequestMapping("/")
 	public String viewMain(Model model) {
 		
-		String imageUrl = "/images/test/main_issue.jpg";
+//		String imageUrl = "/images/test/main_issue.jpg";
+		String imageUrl = "http://1.bp.blogspot.com/-_eOqJw1i78U/T-nPui2ankI/AAAAAAAAAkk/vzNLfVgUWw4/s1600/dust-dirt-and-leaves-inkbluesky.png";
 		
 //		Date date = ElixirUtils.getNow();
 		Date date = ElixirUtils.getDate(2014, Calendar.NOVEMBER, 28, 6);
