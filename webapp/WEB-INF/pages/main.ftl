@@ -33,6 +33,7 @@
 			</div>
 		</div>
 	</div>
-	<img src="http://1.bp.blogspot.com/-_eOqJw1i78U/T-nPui2ankI/AAAAAAAAAkk/vzNLfVgUWw4/s1600/dust-dirt-and-leaves-inkbluesky.png" />		
+<!-- 	<img src="http://1.bp.blogspot.com/-_eOqJw1i78U/T-nPui2ankI/AAAAAAAAAkk/vzNLfVgUWw4/s1600/dust-dirt-and-leaves-inkbluesky.png" /> -->		
+	<img src="${imageSrc}"/>		
 </body>
 </html>
