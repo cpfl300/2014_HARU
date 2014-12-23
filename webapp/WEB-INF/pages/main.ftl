@@ -26,9 +26,11 @@
 			<div class="list-lists">
 				<img src="http://1.bp.blogspot.com/-_eOqJw1i78U/T-nPui2ankI/AAAAAAAAAkk/vzNLfVgUWw4/s1600/dust-dirt-and-leaves-inkbluesky.png"/>
 				<#list hotissues as hoissue>
-						<div class="issue-container" data-date=${date}${hoissue.sequence}>
-							<a href="/date/${date}/article/${hoissue.sequence}"><div class="issue">${hoissue.name}</a></div>
-						</div>
+						<a href="/date/${date}/article/${hoissue.sequence}">
+							<div class="issue-container" data-date=${date}${hoissue.sequence}>
+								<div class="issue">${hoissue.name}</div>
+							</div>
+						</a>
 				</#list>
 			</div>
 		</div>
