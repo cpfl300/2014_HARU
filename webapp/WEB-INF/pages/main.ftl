@@ -18,13 +18,13 @@
 		<div class="list-move-container">
 			<div class="list-date-container">
 				<div class="datetime">
-					<img src="http://1.bp.blogspot.com/-_eOqJw1i78U/T-nPui2ankI/AAAAAAAAAkk/vzNLfVgUWw4/s1600/dust-dirt-and-leaves-inkbluesky.png"/>
+					<img src="${blurImgUrl}"/>
 					<p class="whiten"></p>
 					<p>날짜</p>
 				</div>
 			</div>
 			<div class="list-lists">
-				<img src="http://1.bp.blogspot.com/-_eOqJw1i78U/T-nPui2ankI/AAAAAAAAAkk/vzNLfVgUWw4/s1600/dust-dirt-and-leaves-inkbluesky.png"/>
+				<img src="${blurImgUrl}"/>
 				<#list hotissues as hoissue>
 						<a href="/date/${date}/article/${hoissue.sequence}">
 							<div class="issue-container" data-date=${date}${hoissue.sequence}>
@@ -35,6 +35,6 @@
 			</div>
 		</div>
 	</div>
-	<img src="http://1.bp.blogspot.com/-_eOqJw1i78U/T-nPui2ankI/AAAAAAAAAkk/vzNLfVgUWw4/s1600/dust-dirt-and-leaves-inkbluesky.png" />		
+	<img class="backImg" src="${imageUrl}" />		
 </body>
 </html>

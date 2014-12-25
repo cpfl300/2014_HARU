@@ -27,7 +27,9 @@ public class MainController {
 	@RequestMapping("/")
 	public String viewMain(Model model) {
 		
-		String imageUrl = "/images/test/main_issue.jpg";
+//		String imageUrl = "/images/test/main_issue.jpg";
+		String imageUrl = "/images/mainImg.jpg";
+		String blurImgUrl = "/images/blurImg.jpg";
 		
 //		Date date = ElixirUtils.getNow();
 		Date date = ElixirUtils.getDate(2014, Calendar.NOVEMBER, 28, 6);
@@ -37,6 +39,7 @@ public class MainController {
 		
 		model.addAttribute("hotissues", hotissues);
 		model.addAttribute("imageUrl", imageUrl);
+		model.addAttribute("blurImgUrl", blurImgUrl);
 		model.addAttribute("date", dateStr);
 		
 		return "main";

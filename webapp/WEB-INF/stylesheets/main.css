@@ -40,6 +40,7 @@
 	position: absolute;
 	left: 0;
 	top: 0;
+	height: 70%;
 }
 
 .issue-container{
@@ -72,6 +73,7 @@
 	position: absolute;
 	left: 0;
 	top: 0;
+	width: 100%;
 }
 
 .whiten{
@@ -100,4 +102,12 @@
 /** header-logo - Theme  **/
 .header-logo span {
 	color: white;
+}
+
+/* background images */
+/* .datetime >img, .list-lists >img, .backImg{
+	height: 100%;
+} */
+.backImg{
+	height: 100%;
 }
