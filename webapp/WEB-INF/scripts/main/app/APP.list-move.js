@@ -194,7 +194,7 @@ var Timer = {
 	controlTimer: function(){
 		var time = this.getRemainTime();
 		this.saveTimes(time);
-		setTimeout(this.drawClock.bind(this,5), 10);
+		setTimeout(this.drawClock.bind(this,5), 1000);
 	},
 	getRemainTime: function(){
 		var curDT = new Date();
