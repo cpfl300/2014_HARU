@@ -29,6 +29,10 @@
 	width: 100%;
 	line-height: 80px;
 	overflow: hidden;
+	border-bottom: 2px solid rgba(255,255,255,.9);
+}
+.datetime p {
+	text-align: center;
 }
 
 .list-lists{
@@ -113,5 +117,5 @@
 	height: 100%;
 } */
 .backImg{
-	height: 100%;
+	width: 100%;
 }
