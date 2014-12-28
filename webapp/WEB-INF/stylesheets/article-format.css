@@ -69,6 +69,11 @@ hr{
 	line-height: 2em;
 	padding: 0px 10px 10px 10px;
 }
+.article-content > p {
+	margin-top: 18px;
+	line-height: 1.8;
+}
+
 
 /* 사진 영역 */
 .imgContainer{
@@ -80,7 +85,7 @@ hr{
 
 .imgContainer >img{
 	position: absolute;
-	width: 100%;
+	height: 100%;
 	z-index: 5;
 }
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><sitemesh:write property='title' /></title>
+	<title>: ${article.hotissue.name}</title>
 	<sitemesh:write property='head' />
 	
 	<link rel="stylesheet" type="text/css" href="/stylesheets/article-format.css">
@@ -27,10 +27,6 @@
 			</div>
 		</div>
 		<div class="meta-data">
-			<!-- <div class="issue-container">
-				<div class="section">정치</div>
-				<div class="hot-issue">여당, 공무원연금법 개정안 제출</div>
-			</div> -->
 			<div class="subject-container">
 				<div class="subject">
 					<p>${article.title}</p>

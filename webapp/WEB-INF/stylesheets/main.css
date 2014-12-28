@@ -3,7 +3,8 @@
 	top: 0;
 	bottom: 0;
 	left: 0;
-	width: 100%;
+	!width: 100%;
+	!width: 320px;
 	overflow: hidden;
 }
 
@@ -28,6 +29,10 @@
 	width: 100%;
 	line-height: 80px;
 	overflow: hidden;
+	border-bottom: 2px solid rgba(255,255,255,.9);
+}
+.datetime p {
+	text-align: center;
 }
 
 .list-lists{
@@ -40,6 +45,9 @@
 	position: absolute;
 	left: 0;
 	top: 0;
+	!height: 70%;
+	!width: 320px;
+	width: 100%;
 }
 
 .issue-container{
@@ -72,6 +80,8 @@
 	position: absolute;
 	left: 0;
 	top: 0;
+	width: 100%;
+	
 }
 
 .whiten{
@@ -100,4 +110,12 @@
 /** header-logo - Theme  **/
 .header-logo span {
 	color: white;
+}
+
+/* background images */
+/* .datetime >img, .list-lists >img, .backImg{
+	height: 100%;
+} */
+.backImg{
+	width: 100%;
 }

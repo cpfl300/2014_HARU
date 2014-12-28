@@ -39,6 +39,7 @@ public class HaruServletConfig extends WebMvcConfigurerAdapter{
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/favicon.ico").addResourceLocations("/WEB-INF/static/favicon/favicon.ico");
 	    registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/static/images/");
 	    registry.addResourceHandler("/scripts/**").addResourceLocations("/WEB-INF/scripts/");
 	    registry.addResourceHandler("/stylesheets/**").addResourceLocations("/WEB-INF/stylesheets/");
