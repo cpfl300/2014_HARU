@@ -15,6 +15,7 @@ var MoveList = {
 			this.datetimeOpacity;
 			this.headerOpacity;
 			this.headerColor;
+			this.top;
 			
 			this.target = target[0];
 			myScroll = new IScroll('.list-background', { probeType: 3, mouseWheel: false, click: true});
@@ -45,9 +46,8 @@ var MoveList = {
 			
 		},
 		setBlur: function(){
-			$('.datetime img').css('margin-top', MoveList.fixedMarginTop+'px');
-			
-			$('.list-lists img').css('margin-top', MoveList.fixedListMarginTop+'px');
+//			 $('.datetime img').css('margin-top', MoveList.fixedMarginTop+'px');
+//			 $('.list-lists img').css('margin-top', MoveList.fixedListMarginTop+'px');
 			
 			$('.datetime').css('opacity', MoveList.datetimeOpacity);
 			
@@ -89,8 +89,13 @@ var MoveList = {
 			}
 		},
 		setImgMargin: function(yPos){
-			MoveList.fixedMarginTop = -yPos + MoveList.firstMargin;
-			MoveList.fixedListMarginTop = -yPos + MoveList.listImgMargin;
+			var reverseY = -yPos;
+//			MoveList.fixedMarginTop = -yPos + MoveList.firstMargin;
+			//$('.datetime img')[0].style.transform = 'translate(' + 0 + 'px,' + reverseY + 'px) translateZ(0)';
+			$('.datetime img')[0].style.webkitTransform = 'translate(' + 0 + 'px,' + reverseY + 'px) translateZ(0)';
+//			MoveList.fixedListMarginTop = -yPos + MoveList.listImgMargin;
+//			$('.list-lists img')[0].style.transform = 'translate(' + 0 + 'px,' + reverseY + 'px) translateZ(0)';
+			$('.list-lists img')[0].style.webkitTransform = 'translate(' + 0 + 'px,' + reverseY + 'px) translateZ(0)';
 		}
 };
 
@@ -186,10 +191,12 @@ var Timer = {
 		var date = new Date();
 		this.today = date.getFullYear()+"."+(date.getMonth()+1)+"."+date.getDate();
 		$('.datetime p:last-child')[0].textContent = this.today;
-		$('.datetime').bind('click', function(e){
-			if(e.target.textContent != this.today) return;
-			this.controlTimer();
-		}.bind(this));
+		$('.datetime').bind('click', this.clickFunc.bind(this));
+	},
+	clickFunc: function(e){
+		$('.datetime').unbind('click');
+		if(e.target.textContent != this.today) return;
+		this.controlTimer();
 	},
 	controlTimer: function(){
 		var time = this.getRemainTime();
@@ -201,13 +208,16 @@ var Timer = {
 		var nextDT = new Date(curDT);
 		nextDT.setMinutes(0);
 		nextDT.setSeconds(0);
-		if(6<= curDT.getHours() && curDT.getHours() <18){
+
+		if(6 <= curDT.getHours() && curDT.getHours() < 18){
 			nextDT.setHours(18);
-		} else{
+		} else if(18 <= curDT.getHours()){
 			nextDT.setDate(curDT.getDate()+1);
 			nextDT.setHours(6);
+		} else {
+			nextDT.setHours(6);
 		}
-		
+
 		return (nextDT - curDT)/1000;
 	},
 	saveTimes: function(time){
@@ -224,6 +234,7 @@ var Timer = {
 	drawClock: function(num){
 		if(num == 0) {
 			$('.datetime p:last-child')[0].textContent = this.today;
+			$('.datetime').bind('click', this.clickFunc.bind(Timer));
 			return;
 		}
 		var hour = this.hour;

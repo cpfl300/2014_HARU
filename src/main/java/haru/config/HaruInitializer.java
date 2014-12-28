@@ -43,6 +43,7 @@ public class HaruInitializer implements WebApplicationInitializer {
 		ServletRegistration.Dynamic dispatcher = container.addServlet(HARU, new DispatcherServlet(dispatcherContext));
 		dispatcher.setLoadOnStartup(1);
 		dispatcher.addMapping(ROOT);
+		dispatcher.setInitParameter("throwExceptionIfNoHandlerFound", "true");
 
 		// filter
 		container
