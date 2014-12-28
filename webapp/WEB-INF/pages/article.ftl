@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><sitemesh:write property='title' /></title>
+	<title>: ${article.hotissue.name}</title>
 	<sitemesh:write property='head' />
 	
 	<link rel="stylesheet" type="text/css" href="/stylesheets/article-format.css">

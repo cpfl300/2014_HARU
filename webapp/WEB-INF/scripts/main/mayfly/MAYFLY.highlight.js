@@ -7,7 +7,11 @@
 	var MAYFLY = window.CAGE || {};
 	MAYFLY.highlight = MAYFLY.highlight || {};
 	
-	function Highlight() {
+	/*
+	 * @Param
+	 *   obj.el = targetEl
+	 */
+	function Highlight(obj) {
 		
 	}
 	

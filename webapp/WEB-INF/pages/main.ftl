@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>main view</title>
+	<title>를 보다</title>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<#if Application.debugger == "off">
