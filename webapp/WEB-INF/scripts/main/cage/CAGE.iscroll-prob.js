@@ -244,7 +244,6 @@ var utils = (function () {
 
 	return me;
 })();
-
 function IScroll (el, options) {
 	this.wrapper = typeof el == 'string' ? document.querySelector(el) : el;
 	this.scroller = this.wrapper.children[0];
@@ -508,7 +507,7 @@ IScroll.prototype = {
 		if ( !this.moved ) {
 			this._execEvent('scrollStart');
 		}
-
+		
 		this.moved = true;
 		this._translate(newX, newY);
 
@@ -618,7 +617,6 @@ IScroll.prototype = {
 			this.scrollTo(newX, newY, time, easing);
 			return;
 		}
-
 		this._execEvent('scrollEnd');
 	},
 
@@ -851,9 +849,10 @@ IScroll.prototype = {
 			this.scrollerStyle.left = x + 'px';
 			this.scrollerStyle.top = y + 'px';
 		}
-
+		
 		this.x = x;
 		this.y = y;
+		
 
 
 	if ( this.indicators ) {
@@ -1505,6 +1504,7 @@ IScroll.prototype = {
 			destTime = startTime + duration;
 
 		function step () {
+			
 			var now = utils.getTime(),
 				newX, newY,
 				easing;
@@ -1519,12 +1519,14 @@ IScroll.prototype = {
 
 				return;
 			}
-
+			
 			now = ( now - startTime ) / duration;
 			easing = easingFn(now);
 			newX = ( destX - startX ) * easing + startX;
 			newY = ( destY - startY ) * easing + startY;
+			
 			that._translate(newX, newY);
+			
 
 			if ( that.isAnimating ) {
 				rAF(step);

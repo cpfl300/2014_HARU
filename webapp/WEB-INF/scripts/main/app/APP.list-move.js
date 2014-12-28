@@ -15,6 +15,7 @@ var MoveList = {
 			this.datetimeOpacity;
 			this.headerOpacity;
 			this.headerColor;
+			this.top;
 			
 			this.target = target[0];
 			myScroll = new IScroll('.list-background', { probeType: 3, mouseWheel: false, click: true});
@@ -45,9 +46,8 @@ var MoveList = {
 			
 		},
 		setBlur: function(){
-			$('.datetime img').css('margin-top', MoveList.fixedMarginTop+'px');
-			
-			$('.list-lists img').css('margin-top', MoveList.fixedListMarginTop+'px');
+//			 $('.datetime img').css('margin-top', MoveList.fixedMarginTop+'px');
+//			 $('.list-lists img').css('margin-top', MoveList.fixedListMarginTop+'px');
 			
 			$('.datetime').css('opacity', MoveList.datetimeOpacity);
 			
@@ -89,8 +89,11 @@ var MoveList = {
 			}
 		},
 		setImgMargin: function(yPos){
-			MoveList.fixedMarginTop = -yPos + MoveList.firstMargin;
-			MoveList.fixedListMarginTop = -yPos + MoveList.listImgMargin;
+			var reverseY = -yPos;
+//			MoveList.fixedMarginTop = -yPos + MoveList.firstMargin;
+			$('.datetime img')[0].style.transform = 'translate(' + 0 + 'px,' + reverseY + 'px) translateZ(0)';
+//			MoveList.fixedListMarginTop = -yPos + MoveList.listImgMargin;
+			$('.list-lists img')[0].style.transform = 'translate(' + 0 + 'px,' + reverseY + 'px) translateZ(0)';
 		}
 };
 

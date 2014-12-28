@@ -26,7 +26,7 @@
 			<div class="list-lists">
 				<img src="${blurImgUrl}"/>
 				<#list hotissues as hoissue>
-						<a href="/date/${date}/article/${hoissue.sequence}">
+						<a href="/articles/${date}/${hoissue.sequence}">
 							<div class="issue-container" data-date=${date}${hoissue.sequence}>
 								<div class="issue">${hoissue.name}</div>
 							</div>

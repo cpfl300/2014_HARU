@@ -3,7 +3,8 @@
 	top: 0;
 	bottom: 0;
 	left: 0;
-	width: 100%;
+	!width: 100%;
+	!width: 320px;
 	overflow: hidden;
 }
 
@@ -40,7 +41,9 @@
 	position: absolute;
 	left: 0;
 	top: 0;
-	height: 70%;
+	!height: 70%;
+	!width: 320px;
+	width: 100%;
 }
 
 .issue-container{
@@ -74,6 +77,7 @@
 	left: 0;
 	top: 0;
 	width: 100%;
+	
 }
 
 .whiten{

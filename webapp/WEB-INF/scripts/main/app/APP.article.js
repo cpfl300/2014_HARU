@@ -26,8 +26,9 @@ var ScrollCheck = {
 	checkScrollPos: function(){
 		if($(document).scrollTop() >= this.maxScrollPos){
 			var localData = JSON.parse(localStorage.getItem('haru'));
-
-			var Akey = document.URL.split("date/")[1].split("/article/");
+			
+			//var Akey = document.URL.split("date/")[1].split("/article/");
+			var Akey = document.URL.split("articles/")[1].split("/");
 			var key = Akey.toString().replace(',', '');
 			localData[key] = 2;
 			
