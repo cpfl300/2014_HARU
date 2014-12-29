@@ -12,8 +12,8 @@ var ScrollCheck = {
 	},
 	eventBind: function(){
 		
-		$('body')[0].addEventListener('touchmove', this.checkScrollPos.bind(this));
-		$('body')[0].addEventListener('touchend', function(){
+		$('.article-content').on('touchmove', this.checkScrollPos.bind(this));
+		$('.article-content').on('touchend', function(){
 			setTimeout(this.delayDraw.bind(this, 5), 200);
 		}.bind(this));
 	},
