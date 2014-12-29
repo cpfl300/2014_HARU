@@ -9,6 +9,14 @@ var ScrollCheck = {
 	init: function(){
 		this.maxScrollPos = ($(document).height() - $(window).height()) - 150;
 		this.eventBind();
+		
+		var Akey = document.URL.split("articles/")[1].split("/");
+		var key = Akey.toString().replace(',', '');
+		var localData = JSON.parse(localStorage.getItem('haru'));
+		if(localData[key] == 0){
+			localData[key] = 4;
+		}
+		localStorage.setItem('haru', JSON.stringify(localData));
 	},
 	eventBind: function(){
 		
@@ -30,7 +38,9 @@ var ScrollCheck = {
 			//var Akey = document.URL.split("date/")[1].split("/article/");
 			var Akey = document.URL.split("articles/")[1].split("/");
 			var key = Akey.toString().replace(',', '');
-			localData[key] = 2;
+			if(localData[key] == 4 || localData[key] == 3){
+				localData[key] = 2;
+			}
 			
 			localStorage.setItem('haru', JSON.stringify(localData));
 		}

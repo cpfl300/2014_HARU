@@ -129,6 +129,7 @@ var LocalStorage = {
 			if(typeof savedData[key] == 'undefined'){
 				savedData[key] = 0;
 			}else if(savedData[key] == 2){
+				$(target).removeClass('just-read');
 //				애니메이션 div를 화면에 그려놓음
 				var copy = target.cloneNode();
 				copy.className = "animation-temp-div";
@@ -146,7 +147,23 @@ var LocalStorage = {
 //				key를 1로 변경
 				savedData[key] = 1;
 			}else if (savedData[key] == 1){
+				$(target).removeClass('just-read');
 				target.style.backgroundColor = "rgba(207, 255, 149, 0.6)";
+				
+			}else if (savedData[key] == 3){
+				var t = $(target);
+				if(t.hasClass('just-read-tran')){
+					t.toggleClass('just-read');
+					t.toggleClass('just-read-tran');
+				}
+				t.toggleClass('just-read');
+			}else if(savedData[key] == 4){
+				var t = $(target);
+				t.addClass('just-read-tran');
+				t.on('transitionend', function(key){
+					savedData[key] = 3;
+					localStorage.setItem("haru", JSON.stringify(savedData));
+				}.bind(this, key));
 			}
 		}
 		
@@ -164,7 +181,6 @@ var LocalStorage = {
 	setScrollPos: function(){
 		var pos = localStorage.getItem('pos');
 		if(pos == null){
-			pos = 0;
 		}else{
 			pos = parseInt(pos);
 		}
