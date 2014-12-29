@@ -91,11 +91,28 @@
 
 .animation-temp-div{
 	position: absolute;
+	-webkit-transition: 2s cubic-bezier(0.1, 0.57, 0.1, 1);
+	-moz-transition: 2s cubic-bezier(0.1, 0.57, 0.1, 1);
+	-o-transition: 2s cubic-bezier(0.1, 0.57, 0.1, 1);
+	-ms-transition: 2s cubic-bezier(0.1, 0.57, 0.1, 1);
 	transition: 2s cubic-bezier(0.1, 0.57, 0.1, 1);
 	background-color: transparent;
 	border-bottom: 65px solid rgba(76, 189, 0, 0.6);
 	border-right: 65px solid transparent;
 }
+
+/* don't want read */
+.just-read{
+	background-color: rgba(69, 69, 69, 0.75);
+}
+.tran{
+	-webkit-transition: 1.8s cubic-bezier(0.1, 0.57, 0.1, 1);
+	-moz-transition: 1.8s cubic-bezier(0.1, 0.57, 0.1, 1);
+	-o-transition: 1.8s cubic-bezier(0.1, 0.57, 0.1, 1);
+	-ms-transition: 1.8s cubic-bezier(0.1, 0.57, 0.1, 1);
+	transition: 1.8s cubic-bezier(0.1, 0.57, 0.1, 1);
+}
+
 
 /** layout **/
 #container {
@@ -113,9 +130,6 @@
 }
 
 /* background images */
-/* .datetime >img, .list-lists >img, .backImg{
-	height: 100%;
-} */
 .backImg{
 	width: 100%;
 }

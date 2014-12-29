@@ -136,17 +136,63 @@ var LocalStorage = {
 				copy.style.cssText = "left:"+(-divWidth)+"px; width:" +divWidth+"px;";
 				target.insertAdjacentElement('beforebegin', copy);
 				
-				setTimeout(function(){
+				setTimeout(function(target){
 					copy.style.left = "0px";
-					copy.addEventListener("transitionend", function(){
+					copy.addEventListener("transitionend", function(target){
+						$(target).removeClass('just-read');
+						$(target).addClass('tran');
 						copy.nextElementSibling.style.backgroundColor = "rgba(207, 255, 149, 0.6)";
 						copy.parentNode.removeChild(copy);
-					}, false);
-				}, 500);
+						$(target).on('transitionend', function(target){
+							$(target).removeClass('tran');
+						}.bind(this, target))
+					}.bind(this, target), false);
+				}.bind(this, target), 500);
 //				key를 1로 변경
 				savedData[key] = 1;
 			}else if (savedData[key] == 1){
+				$(target).removeClass('just-read');
 				target.style.backgroundColor = "rgba(207, 255, 149, 0.6)";
+				
+			}else if (savedData[key] == 3){
+				var t = $(target);
+				if(t.hasClass('tran')){
+					t.toggleClass('tran');
+				}
+				t.toggleClass('just-read');
+			}else if(savedData[key] == 4){
+				var t = $(target);
+				t.addClass('tran');
+				t.addClass('just-read');
+				setTimeout(function(key){
+					savedData[key] = 3;
+					localStorage.setItem("haru", JSON.stringify(savedData));
+				}.bind(this, key), 300);
+			}else if(savedData[key] == 5){
+				var t = $(target);
+				t.toggleClass('just-read');
+				//2번인 경우
+//				애니메이션 div를 화면에 그려놓음
+				var copy = target.cloneNode();
+				copy.className = "animation-temp-div";
+				var divWidth = $(window).width() + 65;
+				copy.style.cssText = "left:"+(-divWidth)+"px; width:" +divWidth+"px;";
+				target.insertAdjacentElement('beforebegin', copy);
+				
+				setTimeout(function(target){
+					copy.style.left = "0px";
+					copy.addEventListener("transitionend", function(target){
+						$(target).removeClass('just-read');
+						$(target).addClass('tran');
+						copy.nextElementSibling.style.backgroundColor = "rgba(207, 255, 149, 0.6)";
+						copy.parentNode.removeChild(copy);
+						$(target).on('transitionend', function(target){
+							$(target).removeClass('tran');
+						}.bind(this, target))
+					}.bind(this, target), false);
+				}.bind(this, target), 500);
+//				key를 1로 변경
+				savedData[key] = 1;
 			}
 		}
 		
@@ -164,7 +210,6 @@ var LocalStorage = {
 	setScrollPos: function(){
 		var pos = localStorage.getItem('pos');
 		if(pos == null){
-			pos = 0;
 		}else{
 			pos = parseInt(pos);
 		}
@@ -201,7 +246,7 @@ var Timer = {
 	controlTimer: function(){
 		var time = this.getRemainTime();
 		this.saveTimes(time);
-		setTimeout(this.drawClock.bind(this,5), 1000);
+		setTimeout(this.drawClock.bind(this,5), 5);
 	},
 	getRemainTime: function(){
 		var curDT = new Date();
