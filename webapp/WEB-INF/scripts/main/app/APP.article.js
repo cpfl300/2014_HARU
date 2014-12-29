@@ -38,8 +38,12 @@ var ScrollCheck = {
 			//var Akey = document.URL.split("date/")[1].split("/article/");
 			var Akey = document.URL.split("articles/")[1].split("/");
 			var key = Akey.toString().replace(',', '');
-			if(localData[key] == 4 || localData[key] == 3){
+			if(localData[key] == 4){
 				localData[key] = 2;
+			}
+			
+			if(localData[key] == 3){
+				localData[key] = 5;
 			}
 			
 			localStorage.setItem('haru', JSON.stringify(localData));
