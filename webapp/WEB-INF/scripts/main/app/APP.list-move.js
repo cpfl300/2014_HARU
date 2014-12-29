@@ -164,10 +164,10 @@ var LocalStorage = {
 				var t = $(target);
 				t.addClass('tran');
 				t.addClass('just-read');
-				t.on('transitionend', function(key){
+				setTimeout(function(key){
 					savedData[key] = 3;
 					localStorage.setItem("haru", JSON.stringify(savedData));
-				}.bind(this, key));
+				}.bind(this, key), 300);
 			}else if(savedData[key] == 5){
 				var t = $(target);
 				t.toggleClass('just-read');
